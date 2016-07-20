@@ -75,9 +75,9 @@ body {
 #top-menu a {
   text-decoration: none;
   margin: 10px;
-  color: white;
+  color: #cbb9ab;
   padding: 10px;  
-  background: #27a5d2;
+  background: #513527;
   border-radius: 10px;
   transition:.5s;
   -o-transition:.5s;
