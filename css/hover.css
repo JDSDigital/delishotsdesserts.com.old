@@ -2264,10 +2264,11 @@
 .hvr-ripple-out:before {
   content: '';
   position: absolute;
-  border: #e1e1e1 solid 6px;
+  border: #513527 solid 5px;
+  border-radius: 50%;
   top: 0;
   right: 0;
-  bottom: 0;
+  bottom: 3px;
   left: 0;
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
