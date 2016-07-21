@@ -59,13 +59,17 @@
 
 html {
   text-align: center;
+  background-image: url('../img/background.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 body {
   margin: 0;
   padding: 0;
   text-align: center;
-  background-color: white !important;
+  background-color: transparent !important;
 }
 
 #logo-banner {
@@ -88,10 +92,11 @@ body {
   margin-right: 10px;
   margin-top: 10px;
   margin-bottom: 0;
-  color: #cbb9ab;
+  color: #9f6e53;
   padding: 10px;
   background: #513527;
   border-radius: 10px;
+  border: 1px solid #cbb9ab;
   transition:.5s;
   -o-transition:.5s;
   -ms-transition:.5s;
@@ -108,13 +113,19 @@ body {
   -webkit-transition:.5s;
 }
 
+#top-menu a.active {
+  color: white;
+}
+
 main {
   height: 400px;
   border: 1px solid black;
+  border-radius: 10px;
+  background-color: white;
 }
 
 footer {
-	//background-color: #f7c31e;
+	background-color: white;
 	//border-top: 10px solid #f25f00;
   position: relative;
 }
@@ -135,7 +146,7 @@ footer a {
 }
 
 footer a:hover{
-  color: #f25f00;
+  color: #9f6e53;
   transition:.5s;
   -o-transition:.5s;
   -ms-transition:.5s;
