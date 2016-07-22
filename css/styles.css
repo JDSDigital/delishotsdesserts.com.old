@@ -1,5 +1,7 @@
 @CHARSET "UTF-8";
 
+//@import 'https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700|Comfortaa';
+
 /* make keyframes that tell the start state and the end state of our object */
 
 @-webkit-keyframes fadeIn { from { opacity:0; opacity: 1\9; /* IE9 only */ } to { opacity:1; } }
@@ -63,6 +65,8 @@ html {
   background-size: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  //font-family: 'Cinzel Decorative', cursive;
+  //font-family: 'Comfortaa', cursive;
 }
 
 body {
@@ -88,6 +92,7 @@ body {
 
 #top-menu a {
   text-decoration: none;
+  font-family: 'Cinzel Decorative', cursive;
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 10px;
@@ -118,10 +123,21 @@ body {
 }
 
 main {
-  height: 400px;
+  margin: 0 auto;
+  padding: 50px;
   border: 1px solid black;
   border-radius: 10px;
   background-color: white;
+  text-align: justify;
+}
+
+main h1, h2{
+  font-family: 'Cinzel Decorative', cursive !important;
+  font-weight: bold !important;
+}
+
+main p {
+  font-family: 'Comfortaa', cursive !important;
 }
 
 footer {
