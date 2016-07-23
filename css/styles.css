@@ -141,7 +141,7 @@ main p {
 }
 
 footer {
-	background-color: white;
+	background-color: transparent;
 	//border-top: 10px solid #f25f00;
   position: relative;
 }
