@@ -18,3 +18,15 @@ $(function() {
     }
   });
 });
+
+$(document).ready(function(){
+
+	$('.nuestrosProductos a').click(function(){
+		var tab_id = $(this).attr('data-tab');
+
+		$('.nuestrosProductos a').removeClass('current');
+
+		$(this).addClass('current');
+	})
+
+})

@@ -122,22 +122,70 @@ body {
   color: white;
 }
 
+.col-padding {
+  padding: 0 !important;
+}
+
 main {
   margin: 0 auto;
   padding: 50px;
   border: 1px solid black;
   border-radius: 10px;
   background-color: white;
-  text-align: justify;
+  text-align: left;
 }
 
-main h1, h2{
+main h1, h2, h3{
   font-family: 'Cinzel Decorative', cursive !important;
   font-weight: bold !important;
 }
 
 main p {
   font-family: 'Comfortaa', cursive !important;
+  text-align: justify;
+}
+
+.product-menu {
+  margin-left: 50px;
+  margin-top: 70px;
+  background-image: url(../img/transparent-menu.png);
+  border: 1px solid black;
+  border-radius: 30px 0 0 30px;
+}
+
+.product-menu h3 {
+  color: black;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px #777;
+}
+
+.product-menu ul {
+  padding-left: 0;
+  float: right;
+  text-align: right;
+  font-family: 'Cinzel Decorative', cursive !important;
+}
+
+.product-menu li {
+  padding: 5px;
+  list-style-type: none;
+}
+
+.product-menu a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 1em;
+  opacity: 1;
+  text-shadow: 1px 1px 3px #777;
+}
+
+.product-menu a:hover {
+  color: #CCC;
+}
+
+.current {
+  color: #CCC !important;
 }
 
 footer {
