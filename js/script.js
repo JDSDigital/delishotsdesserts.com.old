@@ -30,3 +30,5 @@ $(document).ready(function(){
 	})
 
 })
+
+$(".nuestrosProductos").stikify({rate: 3.4, cieling: -100});
