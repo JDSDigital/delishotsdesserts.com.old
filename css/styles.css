@@ -99,9 +99,13 @@ body {
   margin-bottom: 0;
   color: #9f6e53;
   padding: 10px;
-  background: #513527;
+  background: linear-gradient(#513527, #2f1e15); /* Standard syntax */
+  background: -o-linear-gradient(#513527, #2f1e15); /* For Opera 11.6 to 12.0 */
+  background: -moz-linear-gradient(#513527, #2f1e15); /* For Firefox 3.6 to 15 */
+  background: -webkit-linear-gradient(#513527, #2f1e15); /* Safari 5.1 to 6.0 */
   border-radius: 10px;
-  border: 1px solid #cbb9ab;
+  //border: 1px solid #cbb9ab;
+  border: 1px solid #302017;
   transition:.5s;
   -o-transition:.5s;
   -ms-transition:.5s;
@@ -138,6 +142,10 @@ main {
 main h1, h2, h3{
   font-family: 'Cinzel Decorative', cursive !important;
   font-weight: bold !important;
+}
+
+main h1 {
+  font-size: 3.5em;
 }
 
 main p {
@@ -205,14 +213,31 @@ main p {
   color: #CCC !important;
 }
 
+#main-index {
+  background: transparent;
+  background-image: url('../img/background-index.png');
+  //background-repeat: no-repeat;
+  //background-size: 100%;
+  color: white;
+  text-shadow: 3px 3px 5px black;
+}
+
+#main-products {
+  background: transparent;
+  background-image: url('../img/background-index.png');
+  //background-repeat: no-repeat;
+  //background-size: 100%;
+  color: white;
+  text-shadow: 3px 3px 5px black;
+}
+
 .product {
   margin-bottom: 70px;
-  //vertical-align: middle;
 }
 
 .product-img {
   width: 250px;
-  border-radius: 50%;
+  border-radius: 45px;
 }
 
 .left {
