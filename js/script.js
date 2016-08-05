@@ -1,8 +1,16 @@
-/*$('.product-nav').click(function(){
-    $('html, body').animate({
-        scrollTop: $( $(this).attr('href') ).offset().top
-    }, 500);
-});*/
+$(document).ready(function(){
+
+	$('.nuestrosProductos a').click(function(){
+		var tab_id = $(this).attr('data-tab');
+
+		$('.nuestrosProductos a').removeClass('current');
+
+		$(this).addClass('current');
+	})
+
+  setInterval('swapImages()', 5000);
+
+})
 
 $(function() {
   $('.product-nav').click(function() {
@@ -19,16 +27,13 @@ $(function() {
   });
 });
 
-$(document).ready(function(){
-
-	$('.nuestrosProductos a').click(function(){
-		var tab_id = $(this).attr('data-tab');
-
-		$('.nuestrosProductos a').removeClass('current');
-
-		$(this).addClass('current');
-	})
-
-})
-
 $(".nuestrosProductos").stikify({rate: 3.4, cieling: -100});
+
+function swapImages(){
+    var $active = $('#myGallery .active');
+    var $next = ($('#myGallery .active').next().length > 0) ? $('#myGallery .active').next() : $('#myGallery img:first');
+    $active.fadeOut(function(){
+    $active.removeClass('active');
+    $next.fadeIn().addClass('active');
+    });
+}

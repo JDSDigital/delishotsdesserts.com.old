@@ -1,6 +1,10 @@
 @CHARSET "UTF-8";
 
-//@import 'https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700|Comfortaa';
+@media only screen and (max-width: 1000px) {
+    .nuestrosProductos {
+        display: none;
+    }
+}
 
 /* make keyframes that tell the start state and the end state of our object */
 
@@ -67,6 +71,7 @@ html {
   background-attachment: fixed;
   //font-family: 'Cinzel Decorative', cursive;
   //font-family: 'Comfortaa', cursive;
+  //font-family: 'Source Sans Pro', sans-serif;
 }
 
 body {
@@ -114,7 +119,7 @@ body {
 }
 
 #top-menu a:hover {
-  color:white;
+  color:#fffccc;
   transition:.5s;
   -o-transition:.5s;
   -ms-transition:.5s;
@@ -123,7 +128,7 @@ body {
 }
 
 #top-menu a.active {
-  color: white;
+  color:#fffccc;
 }
 
 .col-padding {
@@ -142,23 +147,33 @@ main {
 main h1, h2, h3{
   font-family: 'Cinzel Decorative', cursive !important;
   font-weight: bold !important;
+  color: #fffccc;
 }
 
 main h1 {
-  font-size: 3.5em;
+  font-size: 3em;
+}
+
+main h2 {
+  //font-style: italic;
 }
 
 main p {
   font-family: 'Comfortaa', cursive !important;
+  //font-family: 'Source Sans Pro', sans-serif !important;
+  font-size: 1.1em;
   text-align: justify;
+  //color: #fffccc;
+  color: white;
 }
 
 .product-menu {
   position: fixed;
-  width: 170px;
-  margin-left: 50px;
+  width: 200px;
+  margin-left: 20px;
   //margin-top: 70px;
-  background-image: url(../img/transparent-menu.png);
+  //background-image: url(../img/transparent-menu.png);
+  background-image: url('../img/background-index.png');
   border: 1px solid black;
   border-radius: 20px;
   transition:0.8s;
@@ -169,7 +184,8 @@ main p {
 }
 
 .product-menu:hover {
-  background-color: white;
+  //background-color: white;
+  background-image: url('../img/background-index2.png');
   opacity: 0.8;
   transition:0.8s;
   -o-transition:0.8s;
@@ -179,7 +195,7 @@ main p {
 }
 
 .product-menu h3 {
-  color: black;
+  color: #fffccc;
   font-weight: bold;
   text-shadow: 1px 1px 3px #777;
 }
@@ -198,7 +214,7 @@ main p {
 
 .product-menu a {
   text-decoration: none;
-  color: black;
+  color: #fffccc;
   font-weight: bold;
   font-size: 1em;
   opacity: 1;
@@ -206,11 +222,11 @@ main p {
 }
 
 .product-menu a:hover {
-  color: #9f6e53;
+  color: white;
 }
 
 .current {
-  color: #CCC !important;
+  color: white !important;
 }
 
 #main-index {
@@ -218,8 +234,8 @@ main p {
   background-image: url('../img/background-index.png');
   //background-repeat: no-repeat;
   //background-size: 100%;
-  color: white;
-  text-shadow: 3px 3px 5px black;
+  //color: white;
+  text-shadow: 3px 3px 3px black;
 }
 
 #main-products {
@@ -227,8 +243,23 @@ main p {
   background-image: url('../img/background-index.png');
   //background-repeat: no-repeat;
   //background-size: 100%;
-  color: white;
+  //color: white;
   text-shadow: 3px 3px 5px black;
+}
+
+#myGallery {
+
+}
+
+#myGallery img {
+  display: none;
+  width: 100%;
+  border-radius: 30px;
+  box-shadow: 0px 0px 40px 5px white;
+}
+
+#myGallery img.active {
+  display: block;
 }
 
 .product {
@@ -238,6 +269,7 @@ main p {
 .product-img {
   width: 250px;
   border-radius: 45px;
+  box-shadow: 0px 0px 40px 5px white;
 }
 
 .left {
