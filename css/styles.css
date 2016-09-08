@@ -70,8 +70,8 @@ html {
   background-repeat: no-repeat;
   background-attachment: fixed;
   //font-family: 'Cinzel Decorative', cursive;
-  //font-family: 'Comfortaa', cursive;
-  //font-family: 'Source Sans Pro', sans-serif;
+  //font-family: 'Raleway', sans-serif;
+  //font-family: 'Oxygen', sans-serif;
 }
 
 body {
@@ -159,9 +159,9 @@ main h2 {
 }
 
 main p {
-  font-family: 'Comfortaa', cursive !important;
-  //font-family: 'Source Sans Pro', sans-serif !important;
-  font-size: 1.1em;
+  //font-family: 'Raleway', sans-serif;
+  font-family: 'Oxygen', sans-serif !important;
+  font-size: 18px;
   text-align: justify;
   //color: #fffccc;
   color: white;
@@ -287,7 +287,7 @@ main p {
 .view {
    width: 500px;
    //height: 200px;
-   margin: 10px;
+   margin: 50px auto;
    //float: left;
    border-radius: 45px;
    box-shadow: 0px 0px 40px 5px white;
@@ -302,7 +302,7 @@ main p {
 }
 .view .mask,.view .content {
    width: 500px;
-   height: 300px;
+   height: 500px;
    //border-radius: 45px;
    position: absolute;
    overflow: hidden;
@@ -315,22 +315,22 @@ main p {
    //border-radius: 45px;
 }
 .view h2 {
-   text-transform: uppercase;
+   //text-transform: uppercase;
    color: #fff;
    text-align: center;
    position: relative;
    font-size: 17px;
-   padding: 10px;
+   padding: 0px 5px 15px 5px;
    background: rgba(0, 0, 0, 0.8);
    margin: 20px 0 0 0;
 }
 .view p {
-   font-family: Georgia, serif;
+   font-family: 'Raleway', sans-serif !important;
    font-style: italic;
-   font-size: 16px;
+   font-size: 18px;
    position: relative;
    color: #fff;
-   padding: 20px;
+   padding: 10px 25px 10px 25px;
    text-align: center;
 }
 
