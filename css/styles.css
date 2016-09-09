@@ -301,8 +301,8 @@ main p {
    //background: #fff url(../images/bgimg.jpg) no-repeat center center;
 }
 .view .mask,.view .content {
-   width: 500px;
-   height: 500px;
+   width: 100%;
+   height: 100%;
    //border-radius: 45px;
    position: absolute;
    overflow: hidden;
@@ -316,7 +316,7 @@ main p {
 }
 .view h2 {
    //text-transform: uppercase;
-   color: #fff;
+   color: #fffccc;
    text-align: center;
    position: relative;
    font-size: 17px;
