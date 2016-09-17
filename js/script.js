@@ -9,7 +9,8 @@ $(document).ready(function(){
 	})
 
   setInterval('swapImages()', 5000);
-	setInterval('swapImages2()', 5000);
+	setInterval('swapImages2()', 3000);
+	setInterval('swapImages3()', 3500);
 
 })
 
@@ -22,7 +23,7 @@ function swapImages(){
     });
 }
 
-function swapImages(){
+function swapImages2(){
     var $active = $('#thumbsShots .active');
     var $next = ($('#thumbsShots .active').next().length > 0) ? $('#thumbsShots .active').next() : $('#thumbsShots img:first');
     $active.fadeOut(function(){
@@ -31,7 +32,7 @@ function swapImages(){
     });
 }
 
-function swapImages2(){
+function swapImages3(){
     var $active = $('#thumbsEvents .active');
     var $next = ($('#thumbsEvents .active').next().length > 0) ? $('#thumbsEvents .active').next() : $('#thumbsEvents img:first');
     $active.fadeOut(function(){

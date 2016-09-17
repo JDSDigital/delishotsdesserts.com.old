@@ -282,13 +282,17 @@ main p {
   display: inline-block;
   position: absolute;
   text-align: center;
+  font-weight: normal !important;
+  //font-family: 'Oxygen', sans-serif !important;
+  //font-family: 'Raleway', sans-serif !important;
   top: 0px;
   width: 100%;
   height: 200px;
-  padding-top: 120px;
-  font-size: 5em;
-  //color: #9f6e53;
-  text-shadow: 2px 2px 2px black;
+  padding-top: 60px;
+  font-size: 6em;
+  color: #fff;
+  //text-shadow: 0 0 0.2em #ffa659, 0 0 0.2em #ffa659, 0 0 0.2em #ffa659;
+  text-shadow: 0 0 0.1em #d56402, 0 0 0.1em #d56402, 0 0 0.1em #d56402;
   cursor: pointer;
 }
 
