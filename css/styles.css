@@ -620,6 +620,30 @@ main p {
     height /**/: 66px;
 }
 
+/************************* Escoge tu mejor opción ****************************/
+
+.show-product {
+  display: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.current {
+  display: inherit;
+}
+
+.add-product {
+  cursor: pointer;
+  text-align: center;
+}
+
+.add-product ul {
+  list-style-type: none;
+  color: white;
+}
+
+/*********************** Fin de escoge tu mejor opción ***********************/
+
 /*****************************************************************************/
 
 footer {
