@@ -21,7 +21,7 @@ $(document).ready(function(){
 
 	});
 
-	$('#product-list li').click(function() {
+	$('#product-list').click(function() {
 
 		$("li").on("click", removeProduct);
 
