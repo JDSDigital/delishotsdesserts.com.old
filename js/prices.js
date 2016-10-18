@@ -1,30 +1,35 @@
 var prices = [
   {
     "product": "caramel-dreams",
+    "name": "Caramel Dreams",
     "full": true,
     "shot": true,
     "price": 100
   },
   {
     "product": "four-elements",
+    "name": "Four Elements",
     "full": true,
-    "shot": true,
+    "shot": false,
     "price": 200
   },
   {
     "product": "sweet-passion",
-    "full": true,
+    "name": "Sweet Passion",
+    "full": false,
     "shot": true,
     "price": 300
   },
   {
     "product": "choco-lovers",
-    "full": true,
-    "shot": true,
+    "name": "Choco Lovers",
+    "full": false,
+    "shot": false,
     "price": 400
   },
   {
     "product": "crazy-brownie",
+    "name": "Crazy Brownie",
     "full": true,
     "shot": true,
     "price": 500

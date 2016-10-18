@@ -25,38 +25,74 @@ $(document).ready(function(){
 
 		$(li).append("<select id='selectProduct"+i+"'><option value='0'>Seleccione un producto</option></select><select id='selectType"+i+"'><option value='0'>Seleccione una presentación</option></select><select id='selectQuantity"+i+"'><option value='0'>Seleccione la cantidad</option></select>");
 
+		createSelectProduct();
+
 /**************************** Registro de eventos ****************************/
 
-		var selectProductLi = "#selectProduct"+i;
-		$("#selectProduct"+i).on("change", {name: selectProductLi}, createSelectType);
+		var selectProductLi = "selectProduct"+i;
+		var selectTypeLi = "selectType"+i;
+		var selectQuantityLi = "selectQuantity"+i;
 
-		var selectTypeLi = "#selectType"+i;
-		$("#selectType"+i).on("change", {name: selectTypeLi}, createSelectQuantity);
+		$("#"+selectProductLi).on("change", {name: selectProductLi}, createSelectType);
 
-		var selectQuantityLi = "#selectQuantity"+i;
-		$("#selectQuantity"+i).on("change", {name: selectQuantityLi}, createEnding);
+		$("#"+selectTypeLi).on("change", {name: selectTypeLi}, createSelectQuantity);
+
+		$("#"+selectQuantityLi).on("change", {name: selectQuantityLi}, createEnding);
 
 /************************ Fin de registro de eventos *************************/
 
-		// Get dropdown element from DOM
-		var dropdown = document.getElementById("selectProduct"+i);
+		function createSelectProduct() {
 
-		// Loop through the array
-		for (var j = 0; j < prices.length; ++j) {
-		    // Append the element to the end of Array list
-		    dropdown[dropdown.length] = new Option(prices[j].product, prices[j].product);
+			// Get dropdown element from DOM
+			var dropdown = document.getElementById("selectProduct"+i);
+
+			// Loop through the array
+			for (var j = 0; j < prices.length; ++j) {
+			    // Append the element to the end of Array list
+			    dropdown[dropdown.length] = new Option(prices[j].name, prices[j].product);
+			}
+
 		}
 
 		function createSelectType(event) {
-			console.log(event.data.name);
+
+			var selectedField = document.getElementById(event.data.name);
+			var selectedValue = selectedField.options[selectedField.selectedIndex].value;
+
+			// Find product data in prices.js
+			function getProductByProductName(val) {
+			  return prices.filter(
+			      function(prices){return prices.product == val}
+			  );
+			}
+
+			var found = getProductByProductName(selectedValue);
+
+			// Fill the type dropdown list
+			if (found[0].full === true) {
+				console.log("Full Available");
+			}
+
+			if (found[0].shot === true) {
+				console.log("Shot Available");
+			}
+
 		}
 
 		function createSelectQuantity(event) {
-			console.log(event.data.name);
+
+			// Get dropdown element from DOM
+			var selectedField = document.getElementById(event.data.name);
+			var selectedValue = selectedField.options[selectedField.selectedIndex].value;
+
 		}
 
 		function createEnding(event) {
-			console.log(event.data.name);
+
+			// Get dropdown element from DOM
+			var selectedField = document.getElementById(event.data.name);
+			var selectedValue = selectedField.options[selectedField.selectedIndex].value;
+
 		}
 
 		i++;
