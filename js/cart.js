@@ -25,11 +25,18 @@ $(document).ready(function(){
 
 		$(li).append("<select id='selectProduct"+i+"'><option value='0'>Seleccione un producto</option></select><select id='selectType"+i+"'><option value='0'>Seleccione una presentación</option></select><select id='selectQuantity"+i+"'><option value='0'>Seleccione la cantidad</option></select>");
 
+/**************************** Registro de eventos ****************************/
+
 		var selectProductLi = "#selectProduct"+i;
 		$("#selectProduct"+i).on("change", {name: selectProductLi}, createSelectType);
-		
-		document.getElementById("selectType"+i).addEventListener("change", createSelectQuantity);
-		document.getElementById("selectQuantity"+i).addEventListener("change", createEnding);
+
+		var selectTypeLi = "#selectType"+i;
+		$("#selectType"+i).on("change", {name: selectTypeLi}, createSelectQuantity);
+
+		var selectQuantityLi = "#selectQuantity"+i;
+		$("#selectQuantity"+i).on("change", {name: selectQuantityLi}, createEnding);
+
+/************************ Fin de registro de eventos *************************/
 
 		// Get dropdown element from DOM
 		var dropdown = document.getElementById("selectProduct"+i);
@@ -44,11 +51,12 @@ $(document).ready(function(){
 			console.log(event.data.name);
 		}
 
-		function createSelectQuantity() {
-
+		function createSelectQuantity(event) {
+			console.log(event.data.name);
 		}
 
-		function createEnding() {
+		function createEnding(event) {
+			console.log(event.data.name);
 		}
 
 		i++;
