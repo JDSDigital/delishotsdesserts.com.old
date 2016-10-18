@@ -88,7 +88,7 @@ body {
 }
 
 #logo-banner {
-  //width: 300px;
+
 }
 
 #top-menu ul {
@@ -115,7 +115,6 @@ body {
   background: -moz-linear-gradient(#513527, #2f1e15); /* For Firefox 3.6 to 15 */
   background: -webkit-linear-gradient(#513527, #2f1e15); /* Safari 5.1 to 6.0 */
   border-radius: 10px;
-  //border: 1px solid #cbb9ab;
   border: 1px solid #302017;
   transition:.5s;
   -o-transition:.5s;
@@ -161,15 +160,13 @@ main h1 {
 }
 
 main h2 {
-  //font-style: italic;
+
 }
 
 main p {
-  //font-family: 'Raleway', sans-serif;
   font-family: 'Oxygen', sans-serif !important;
   font-size: 18px;
   text-align: justify;
-  //color: #fffccc;
   color: white;
 }
 
@@ -182,8 +179,6 @@ main p {
   position: fixed;
   width: 200px;
   margin-left: 20px;
-  //margin-top: 70px;
-  //background-image: url(../img/transparent-menu.png);
   background-image: url('../img/background-index.png');
   border: 1px solid black;
   border-radius: 20px;
@@ -195,7 +190,6 @@ main p {
 }
 
 .product-menu:hover {
-  //background-color: white;
   background-image: url('../img/background-index2.png');
   opacity: 0.8;
   transition:0.8s;
@@ -243,18 +237,12 @@ main p {
 #main-index {
   background: transparent;
   background-image: url('../img/background-index.png');
-  //background-repeat: no-repeat;
-  //background-size: 100%;
-  //color: white;
   text-shadow: 3px 3px 3px black;
 }
 
 #main-products {
   background: transparent;
   background-image: url('../img/background-index.png');
-  //background-repeat: no-repeat;
-  //background-size: 100%;
-  //color: white;
   text-shadow: 3px 3px 5px black;
 }
 
@@ -294,8 +282,6 @@ main p {
   position: absolute;
   text-align: center;
   font-weight: normal !important;
-  //font-family: 'Oxygen', sans-serif !important;
-  //font-family: 'Raleway', sans-serif !important;
   top: 0px;
   width: 100%;
   height: 240px;
@@ -303,7 +289,6 @@ main p {
   padding-top: 80px;
   font-size: 5em;
   color: #fff;
-  //text-shadow: 0 0 0.2em #ffa659, 0 0 0.2em #ffa659, 0 0 0.2em #ffa659;
   text-shadow: 0 0 0.1em #d56402, 0 0 0.1em #d56402, 0 0 0.1em #d56402;
   cursor: pointer;
 }
@@ -320,7 +305,6 @@ main p {
 #thumbsEvents img {
   display: none;
   margin: auto;
-  //width: 100%;
   border-radius: 30px;
   box-shadow: 0px 0px 40px 5px white;
 }
@@ -343,7 +327,6 @@ main p {
 
 .product-img {
   width: 250px;
-  //border-radius: 45px;
   box-shadow: 0px 0px 40px 5px white;
 }
 
@@ -359,9 +342,7 @@ main p {
 
 .view {
    width: 500px;
-   //height: 200px;
    margin: 50px auto;
-   //float: left;
    border-radius: 45px;
    box-shadow: 0px 0px 40px 5px white;
    overflow: hidden;
@@ -371,12 +352,10 @@ main p {
    -moz-box-shadow: 0px 0px 40px 5px white;
    box-shadow: 0px 0px 40px 5px white;
    cursor: default;
-   //background: #fff url(../images/bgimg.jpg) no-repeat center center;
 }
 .view .mask,.view .content {
    width: 100%;
    height: 100%;
-   //border-radius: 45px;
    position: absolute;
    overflow: hidden;
    top: 0;
@@ -385,10 +364,8 @@ main p {
 .view img {
    display: block;
    position: relative;
-   //border-radius: 45px;
 }
 .view h2 {
-   //text-transform: uppercase;
    color: #fffccc;
    text-align: center;
    position: relative;
@@ -426,7 +403,6 @@ main p {
    -o-transition: all 0.3s ease-in 0.4s;
    -ms-transition: all 0.3s ease-in 0.4s;
    transition: all 0.3s ease-in 0.4s;
-   //border-radius: 45px;
 }
 .view-sixth h2 {
    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
@@ -648,7 +624,6 @@ main p {
 
 footer {
 	background-color: transparent;
-	//border-top: 10px solid #f25f00;
   position: relative;
 }
 
