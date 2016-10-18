@@ -604,6 +604,10 @@ main p {
   cursor: pointer;
 }
 
+.show-product select {
+  color: black;
+}
+
 .current {
   display: inherit;
 }
