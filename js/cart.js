@@ -58,6 +58,9 @@ $(document).ready(function(){
 
 			var selectedField = document.getElementById(event.data.name);
 			var selectedValue = selectedField.options[selectedField.selectedIndex].value;
+			var lineId = selectedField.parentNode.id;
+			lineId = lineId.split('');
+			lineId = lineId[lineId.length-1];
 
 			// Find product data in prices.js
 			function getProductByProductName(val) {
@@ -67,14 +70,22 @@ $(document).ready(function(){
 			}
 
 			var found = getProductByProductName(selectedValue);
+			var dropdown = document.getElementById("selectType"+lineId);
+
+			// Empty dropdown list
+			dropdown.options.length = 0;
 
 			// Fill the type dropdown list
 			if (found[0].full === true) {
-				console.log("Full Available");
+
+				dropdown[dropdown.length] = new Option("Postre completo", 0);
+
 			}
 
 			if (found[0].shot === true) {
-				console.log("Shot Available");
+
+				dropdown[dropdown.length] = new Option("Postre en shots", 1);
+
 			}
 
 		}
