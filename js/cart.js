@@ -23,7 +23,9 @@ $(document).ready(function(){
 		li.setAttribute("id", "product"+i);
 	  ul.appendChild(li);
 
-		$(li).append("<select id='selectProduct"+i+"'><option value='0'>Seleccione un producto</option></select><select id='selectType"+i+"'><option value='0'>Seleccione una presentación</option></select><select id='selectQuantity"+i+"'><option value='0'>Seleccione la cantidad</option></select>");
+		//$(li).append("<select id='selectProduct"+i+"' class='form-control'><option value='0'>Seleccione un producto</option></select><select id='selectType"+i+"' class='form-control'><option value='0'>Seleccione una presentación</option></select><select id='selectQuantity"+i+"' class='form-control'><option value='0'>Seleccione la cantidad</option></select>");
+
+		$(li).append("<div class='row-fluid'><div class='col-md-4'><select id='selectProduct"+i+"' class='form-control'><option value='0'>Seleccione un producto</option></select></div><div class='col-md-4'><select id='selectType"+i+"' class='form-control'><option value='0'>Seleccione una presentación</option></select></div><div class='col-md-4'><select id='selectQuantity"+i+"' class='form-control'><option value='0'>Seleccione la cantidad</option></select></div></div>");
 
 		createSelectProduct();
 
@@ -58,7 +60,7 @@ $(document).ready(function(){
 
 			var selectedField = document.getElementById(event.data.name);
 			var selectedValue = selectedField.options[selectedField.selectedIndex].value;
-			var lineId = selectedField.parentNode.id;
+			var lineId = selectedField.parentNode.parentNode.parentNode.id;
 			lineId = lineId.split('');
 			lineId = lineId[lineId.length-1];
 
@@ -73,7 +75,7 @@ $(document).ready(function(){
 			var dropdown = document.getElementById("selectType"+lineId);
 
 			// Empty dropdown list
-			dropdown.options.length = 0;
+			dropdown.options.length = 1;
 
 			// Fill the type dropdown list
 			if (found[0].full === true) {

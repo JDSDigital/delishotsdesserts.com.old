@@ -617,9 +617,13 @@ main p {
   text-align: center;
 }
 
-.add-product ul {
+.add-product ul, li {
   list-style-type: none;
   color: white;
+}
+
+.form-control {
+  margin-bottom: 20px;
 }
 
 /*********************** Fin de escoge tu mejor opción ***********************/
