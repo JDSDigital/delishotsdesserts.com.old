@@ -80,13 +80,13 @@ $(document).ready(function(){
 			// Fill the type dropdown list
 			if (found[0].full === true) {
 
-				dropdown[dropdown.length] = new Option("Postre completo", 0);
+				dropdown[dropdown.length] = new Option("Postre completo", 1);
 
 			}
 
 			if (found[0].shot === true) {
 
-				dropdown[dropdown.length] = new Option("Postre en shots", 1);
+				dropdown[dropdown.length] = new Option("Postre en shots", 2);
 
 			}
 
@@ -97,6 +97,26 @@ $(document).ready(function(){
 			// Get dropdown element from DOM
 			var selectedField = document.getElementById(event.data.name);
 			var selectedValue = selectedField.options[selectedField.selectedIndex].value;
+			
+			var lineId = selectedField.parentNode.parentNode.parentNode.id;
+			lineId = lineId.split('');
+			lineId = lineId[lineId.length-1];
+			
+			var dropdown = document.getElementById("selectQuantity"+lineId);
+			
+			
+			
+			if (selectedValue == 1) {
+				for (i = 1; i < 7; i++) {
+					dropdown[dropdown.length] = new Option(i, i);
+				}
+				console.log(selectedValue);
+			} else if (selectedValue == 2) {
+				for (i = 6; i < 37; i+6) {
+					dropdown[dropdown.length] = new Option(i, i);
+				}
+				console.log(selectedValue);
+			}
 
 		}
 
