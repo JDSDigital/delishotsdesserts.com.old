@@ -25,7 +25,7 @@ $(document).ready(function(){
 
 		//$(li).append("<div class='row-fluid' style='margin-bottom:50px;'><div class='col-md-4'><select id='selectProduct"+i+"' class='form-control'><option value='0'>Seleccione un producto</option></select></div><div class='col-md-4'><select id='selectType"+i+"' class='form-control'><option value='0'>Seleccione una presentación</option></select></div><div class='col-md-3'><select id='selectQuantity"+i+"' class='form-control'><option value='0'>Seleccione la cantidad</option></select></div><div class='col-md-1'><button id='deleteLi"+i+"' class='btn btn-danger'><span class='glyphicon glyphicon-remove'></span></button></div></div>");
 
-		$(li).append("<div class='row-fluid' style='margin-bottom:50px;'><div class='col-md-1'><button id='deleteLi"+i+"' class='btn btn-danger'><span class='glyphicon glyphicon-remove'></span></button></div><div class='col-md-3'><div id='product-photo-"+i+"'>Photo goes here</div></div><div class='col-md-8'><div class='row-fluid'><table class='product-table' style='margin-bottom: 20px;'><tr><td>Seleccione un producto</td><td><select id='selectProduct"+i+"' class='form-control'><option value='0'>Seleccione un producto</option></select></td></tr><tr><td>Seleccione una presentacion</td><td><select id='selectType"+i+"' class='form-control'><option value='0'>Seleccione una presentación</option></select></td></tr><tr><td>Seleccione la cantidad</td><td><select id='selectQuantity"+i+"' class='form-control'><option value='0'>Seleccione la cantidad</option></select></td></tr></table></div></div></div>");
+		$(li).append("<div class='row-fluid' style='margin-bottom:50px;'><div class='col-md-1'><button id='deleteLi"+i+"' class='btn btn-danger'><span class='glyphicon glyphicon-remove'></span></button></div><div class='col-md-3'><div id='product-photo-"+i+"'><img class='product-photo-option' src='./img/products/0.png' /></div></div><div class='col-md-8'><div class='row-fluid'><table class='product-table' style='margin-bottom: 20px;'><tr><td>Seleccione un producto</td><td><select id='selectProduct"+i+"' class='form-control'><option value='0'>Seleccione un producto</option></select></td></tr><tr><td>Seleccione una presentacion</td><td><select id='selectType"+i+"' class='form-control'><option value='0'>Seleccione una presentación</option></select></td></tr><tr><td>Seleccione la cantidad</td><td><select id='selectQuantity"+i+"' class='form-control'><option value='0'>Seleccione la cantidad</option></select></td></tr></table></div></div></div>");
 
 		createSelectProduct();
 
@@ -88,16 +88,18 @@ $(document).ready(function(){
 		dropdownType.options.length = 1;
 
 		// Fill the type dropdown list
-		if (found[0].full === true) {
+		if (selectedValue != 0) {
+			if (found[0].full === true) {
 
-			dropdownType[dropdownType.length] = new Option("Postre completo", 1);
+				dropdownType[dropdownType.length] = new Option("Postre completo", 1);
 
-		}
+			}
 
-		if (found[0].shot === true) {
+			if (found[0].shot === true) {
 
-			dropdownType[dropdownType.length] = new Option("Postre en shots", 2);
+				dropdownType[dropdownType.length] = new Option("Postre en shots", 2);
 
+			}
 		}
 
 	}
@@ -138,7 +140,12 @@ $(document).ready(function(){
 
 	function selectPhoto(value, product) {
 		var photoId = "product-photo-"+value;
-		document.getElementById(photoId).innerHTML = "<img class='product-photo-option' src='./img/products/"+product+".jpg' />";
+		if (product == 0) {
+			document.getElementById(photoId).innerHTML = "<img class='product-photo-option' src='./img/products/"+product+".png' />";
+		} else {
+			document.getElementById(photoId).innerHTML = "<img class='product-photo-option' src='./img/products/"+product+".jpg' />";
+		}
+
 	}
 
 	function createEnding(event) {
