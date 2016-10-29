@@ -234,10 +234,14 @@ main p {
   color: white !important;
 }
 
-#main-index {
+#main-index, #main-index-option {
   background: transparent;
   background-image: url('../img/background-index.png');
   text-shadow: 3px 3px 3px black;
+}
+
+#main-index-option {
+  padding: 50px 0px 50px 0px;
 }
 
 #main-products {
@@ -620,16 +624,25 @@ main p {
 .add-product ul, li {
   list-style-type: none;
   color: white;
-  margin-top: 50px;
+  //margin-top: 50px;
   padding: 0px;
 }
 
-.btn {
-  margin-bottom: 20px;
+.product-photo-option {
+  height: 150px;
+  padding: 10px 0px 0px 0px;
 }
 
-.form-control {
-  margin-bottom: 20px;
+.product-table {
+  vertical-align: middle;
+}
+
+.product-table tr, td {
+  padding: 10px;
+}
+
+.btn {
+  margin-top: 65px;
 }
 
 /*********************** Fin de escoge tu mejor opción ***********************/

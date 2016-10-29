@@ -14,8 +14,8 @@ var prices = [
     "price": 200
   },
   {
-    "product": "sweet-passion",
-    "name": "Sweet Passion",
+    "product": "sweet-lemon",
+    "name": "Sweet Lemon",
     "full": false,
     "shot": true,
     "price": 300

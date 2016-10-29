@@ -23,9 +23,7 @@ $(document).ready(function(){
 		li.setAttribute("id", "product"+i);
 	  ul.appendChild(li);
 
-		//$(li).append("<div class='row-fluid' style='margin-bottom:50px;'><div class='col-md-4'><select id='selectProduct"+i+"' class='form-control'><option value='0'>Seleccione un producto</option></select></div><div class='col-md-4'><select id='selectType"+i+"' class='form-control'><option value='0'>Seleccione una presentación</option></select></div><div class='col-md-3'><select id='selectQuantity"+i+"' class='form-control'><option value='0'>Seleccione la cantidad</option></select></div><div class='col-md-1'><button id='deleteLi"+i+"' class='btn btn-danger'><span class='glyphicon glyphicon-remove'></span></button></div></div>");
-
-		$(li).append("<div class='row-fluid' style='margin-bottom:50px;'><div class='col-md-1'><button id='deleteLi"+i+"' class='btn btn-danger'><span class='glyphicon glyphicon-remove'></span></button></div><div class='col-md-3'><div id='product-photo-"+i+"'>Photo goes here</div></div><div class='col-md-8'><div class='row-fluid'><table class='product-table' style='margin-bottom: 20px;'><tr><td>Seleccione un producto</td><td><select id='selectProduct"+i+"' class='form-control'><option value='0'>Seleccione un producto</option></select></td></tr><tr><td>Seleccione una presentacion</td><td><select id='selectType"+i+"' class='form-control'><option value='0'>Seleccione una presentación</option></select></td></tr><tr><td>Seleccione la cantidad</td><td><select id='selectQuantity"+i+"' class='form-control'><option value='0'>Seleccione la cantidad</option></select></td></tr></table></div></div></div>");
+		$(li).append("<div class='row-fluid' style='margin-bottom:50px;'><div class='col-md-4'>Photo goes here</div><div class='col-md-8'><div class='row-fluid'><table class='product-table' style='margin-bottom: 20px;'><tr><td>Seleccione un producto</td><td><select id='selectProduct"+i+"' class='form-control'><option value='0'>Seleccione un producto</option></select></td></tr><tr><td>Seleccione una presentacion</td><td><select id='selectType"+i+"' class='form-control'><option value='0'>Seleccione una presentación</option></select></td></tr><tr><td>Seleccione la cantidad</td><td><select id='selectQuantity"+i+"' class='form-control'><option value='0'>Seleccione la cantidad</option></select></td></tr></table></div></div></div>");
 
 		createSelectProduct();
 
@@ -67,12 +65,9 @@ $(document).ready(function(){
 
 		var selectedField = document.getElementById(event.data.name);
 		var selectedValue = selectedField.options[selectedField.selectedIndex].value;
-		//var lineId = selectedField.parentNode.parentNode.parentNode.id;
-		var lineId = selectedField.id;
+		var lineId = selectedField.parentNode.parentNode.parentNode.id;
 		lineId = lineId.split('');
 		lineId = lineId[lineId.length-1];
-
-		selectPhoto(lineId, selectedValue);
 
 		// Find product data in prices.js
 		function getProductByProductName(val) {
@@ -100,6 +95,8 @@ $(document).ready(function(){
 
 		}
 
+		console.log(selectedValue);
+
 	}
 
 	function createSelectQuantity(event) {
@@ -108,7 +105,7 @@ $(document).ready(function(){
 		var selectedField = document.getElementById(event.data.name);
 		var selectedValue = selectedField.options[selectedField.selectedIndex].value;
 
-		var lineId = selectedField.id;
+		var lineId = selectedField.parentNode.parentNode.parentNode.id;
 		lineId = lineId.split('');
 		lineId = lineId[lineId.length-1];
 
@@ -123,6 +120,8 @@ $(document).ready(function(){
 				dropdownQuantity[dropdownQuantity.length] = new Option(k, k);
 			}
 
+			console.log(lineId);
+
 		} else if (selectedValue == 2) {
 
 			// Empty dropdown list
@@ -132,13 +131,10 @@ $(document).ready(function(){
 				dropdownQuantity[dropdownQuantity.length] = new Option(k, k);
 			}
 
+			console.log(lineId);
+
 		}
 
-	}
-
-	function selectPhoto(value, product) {
-		var photoId = "product-photo-"+value;
-		document.getElementById(photoId).innerHTML = "<img class='product-photo-option' src='./img/products/"+product+".jpg' />";
 	}
 
 	function createEnding(event) {
