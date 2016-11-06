@@ -3,14 +3,36 @@ $(document).ready(function(){
 
 	$('.add-product li').click(function() {
 
-		$('.show-product').addClass('current');
+		$('.show-product, .resultLine, .calculate').addClass('current');
+
 		addProduct();
 
 	});
 
-	$('#product-list').click(function() {
+	$("#buttonCalculate").on("click", function() {
 
-		//$("li").on("click", removeProduct);
+		var listaProductos = document.getElementById('product-list').getElementsByTagName('select');
+		var total = 0;
+		var price = 0;
+
+		for (var p = 0; p < listaProductos.length; p = p+3) {
+
+			function getProductByProductName(val) {
+				return prices.filter(
+						function(prices){return prices.product == val}
+				);
+			}
+
+			var found = getProductByProductName(listaProductos[p].options[listaProductos[p].selectedIndex].value);
+
+			if (found.length !== 0) {
+				price = found[0].price;
+				total = total + price;
+			}
+
+		}
+
+		document.getElementById("result").innerHTML = "<p>" + total + "</p>";
 
 	});
 

@@ -612,6 +612,10 @@ main p {
   color: black;
 }
 
+.resultLine, .calculate {
+  display: none;
+}
+
 .current {
   display: inherit;
 }
@@ -619,6 +623,7 @@ main p {
 .add-product {
   cursor: pointer;
   text-align: center;
+  font-size: 1.3em;
 }
 
 .add-product ul, li {
@@ -641,8 +646,12 @@ main p {
   padding: 10px;
 }
 
-.btn {
+.btn-danger {
   margin-top: 65px;
+}
+
+.calculate {
+  text-align: center;
 }
 
 /*********************** Fin de escoge tu mejor opción ***********************/
