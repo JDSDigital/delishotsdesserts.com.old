@@ -23,17 +23,42 @@ $(document).ready(function(){
 				);
 			}
 
-			var found = getProductByProductName(listaProductos[p].options[listaProductos[p].selectedIndex].value);
+			var selectedProduct = getProductByProductName(listaProductos[p].options[listaProductos[p].selectedIndex].value);
+			var selectedType = listaProductos[p+1].options[listaProductos[p+1].selectedIndex].value;
+			var selectedQuantity = listaProductos[p+2].options[listaProductos[p+2].selectedIndex].value;
 
-			if (found.length !== 0) {
-				price = found[0].price;
-				total = total + price;
+			if (selectedProduct.length !== 0) {
+
+				if (selectedType == 1) {
+					price = selectedProduct[0].fullPrice * selectedQuantity;
+					total = total + price;
+				} else if (selectedType == 2) {
+					price = selectedProduct[0].shotPrice * selectedQuantity;
+					total = total + price;
+				}
+
 			}
 
 		}
 
 		document.getElementById("result").innerHTML = "<p>" + total + "</p>";
 
+	});
+
+	$("#buttonContinue").on("click", function() {
+		var listaProductos = document.getElementById('product-list').getElementsByTagName('select');
+		var shopList = [];
+
+		for (var s = 0; s < listaProductos.length; s=s+3) {
+
+			var selectedProduct = listaProductos[s].options[listaProductos[s].selectedIndex].value;
+			var selectedType = listaProductos[s+1].options[listaProductos[s+1].selectedIndex].value;
+			var selectedQuantity = listaProductos[s+2].options[listaProductos[s+2].selectedIndex].value;
+
+			shopList.push([selectedProduct, selectedType, selectedQuantity]);
+
+		}
+		
 	});
 
 	var i = 0;

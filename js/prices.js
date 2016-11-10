@@ -4,14 +4,16 @@ var prices = [
     "name": "Caramel Dreams",
     "full": true,
     "shot": true,
-    "price": 100
+    "fullPrice": 100,
+    "shotPrice": 10
   },
   {
     "product": "four-elements",
     "name": "Four Elements",
     "full": true,
     "shot": false,
-    "price": 200
+    "fullPrice": 200,
+    "shotPrice": 20
   },
   {
     "product": "sweet-lemon",
