@@ -20,20 +20,23 @@ var prices = [
     "name": "Sweet Lemon",
     "full": false,
     "shot": true,
-    "price": 300
+    "fullPrice": 300,
+    "shotPrice": 30
   },
   {
     "product": "choco-lovers",
     "name": "Choco Lovers",
     "full": false,
     "shot": false,
-    "price": 400
+    "fullPrice": 400,
+    "shotPrice": 40
   },
   {
     "product": "crazy-brownie",
     "name": "Crazy Brownie",
     "full": true,
     "shot": true,
-    "price": 500
+    "fullPrice": 500,
+    "shotPrice": 50
   }
 ];

@@ -58,7 +58,7 @@ $(document).ready(function(){
 			shopList.push([selectedProduct, selectedType, selectedQuantity]);
 
 		}
-		
+
 	});
 
 	var i = 0;
