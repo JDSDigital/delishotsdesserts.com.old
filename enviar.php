@@ -11,8 +11,6 @@
 	<script src="./js/jquery-2.2.4.min.js"></script>
   <script src="./js/bootstrap.min.js"></script>
   <script src="./js/script.js"></script>
-	<script src="./js/prices.js"></script>
-  <script src="./js/cart.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700|Raleway:400,400i|Oxygen" rel="stylesheet">
 </head>
 <body class="body">
@@ -29,48 +27,61 @@
 			<ul>
 				<li class=""><a class="hvr-wobble-top" href="./index.html">Quienes Somos</a></li>
 				<li class=""><a class="hvr-wobble-top" href="./nuestros_productos.html">Nuestros Productos</a></li>
-				<li class=""><a class="hvr-wobble-top active" href="./opcion.html">Escoge tu Mejor Opción</a></li>
+				<li class=""><a class="hvr-wobble-top" href="./opcion.html">Escoge tu Mejor Opción</a></li>
 				<li class=""><a class="hvr-wobble-top" href="./galeria.html">Galería</a></li>
-				<li class=""><a class="hvr-wobble-top" href="./contactanos.html">Contáctanos</a></li>
+				<li class=""><a class="hvr-wobble-top active" href="./contactanos.html">Contáctanos</a></li>
 			</ul>
 		</nav>
 	</div>
 
 	<div class="row-fluid fade-in body">
 		<div class="col-md-8 col-md-offset-2 col-padding">
-			<main id="main-index-option">
+			<main id="main-index">
 
-				<h1>Escoge Tu Mejor Opción</h1>
+				<h1>Contáctanos</h1>
 
-				<div class="show-product">
-					<ul id="product-list"></ul>
-				</div>
+				<div class="row-fluid contact">
+					<form class="contact-form" action="enviar.php" method="post">
+						<input name="nombre" type="text" class="form-control form-text" placeholder="Nombre" required />
+						<input name="telefono" type="text" class="form-control form-text" placeholder="Teléfono" required />
+						<input name="correo" type="email" class="form-control form-text" placeholder="Correo" required />
+						<textarea name="comentario" class="form-control" rows="4" placeholder="Comentario" required></textarea>
+						<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-send"></span> Enviar</button>
+					</form>
 
-				<div class="row add-product">
-					<div class="col-md-12">
-						<ul>
-							<li>Click para agregar un producto</li>
-						</ul>
-					</div>
-				</div>
+					<?php
+					$nombre = $_POST['nombre'];
+					$apellido = $_POST['apellido'];
+					$email = $_POST['email'];
+					$comentario = $_POST['comentario'];
 
-				<div class="row-fluid resultLine">
+					# Include the Autoloader (see "Libraries" for install instructions)
+					require 'vendor/autoload.php';
+					use Mailgun\Mailgun;
 
-					<div class="col-md-1 col-md-offset-8">
-						<p>Total:</p>
-					</div>
+					# Instantiate the client.
+					$mgClient = new Mailgun('key-bb6be62102fbde6cb67a14a09ef126fe');
+					$domain = "mg.grupo-jgm.com";
 
-					<div class="col-md-1">
-						<div id="result"><p>0</p></div>
-					</div>
+					# Make the call to the client.
+					$result = $mgClient->sendMessage($domain, array(
+							'from'    => 'Grupo JGM Web <postmaster@mg.grupo-jgm.com>',
+							'to'      => 'Grupo JGM <jdsosa@gmail.com>',
+							'subject' => 'Nuevo mensaje desde la página web',
+							'text'    => '
+									Ha recibido un nuevo mensaje desde la página web.
 
-				</div>
+									Nombre: ' .$nombre .'
+									Apellido: ' .$apellido .'
+									Email: ' .$email .'
+									Comentario: ' .$comentario .'
+							'
+					));
 
-				<div class="row calculate">
-					<div class="col-md-12">
-						<button type="button" id="buttonCalculate" name="buttonCalculate" class="btn btn-info"><span class='glyphicon glyphicon-info-sign'></span> Calcular</button>
-						<button type="button" id="buttonContinue" name="buttonContinue" class="btn btn-success"><span class='glyphicon glyphicon-ok'></span> Continuar</button>
-					</div>
+					echo "<br />Mensaje enviado";
+
+					 ?>
+
 				</div>
 
 			</main>

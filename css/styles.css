@@ -244,6 +244,10 @@ main p {
   padding: 50px 0px 50px 0px;
 }
 
+#main-index-option h1 {
+  margin: 20px 50px 50px 50px;
+}
+
 #main-products {
   background: transparent;
   background-image: url('../img/background-index.png');
@@ -655,6 +659,23 @@ main p {
 }
 
 /*********************** Fin de escoge tu mejor opción ***********************/
+
+/******************************* Contactanos *********************************/
+
+.contact {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.contact-form {
+  width: 60%;
+  margin: 0 auto;
+}
+.contact-form input, textarea {
+  margin: 10px;
+}
+
+/**************************** Fin de contactanos *****************************/
 
 /*****************************************************************************/
 

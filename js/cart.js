@@ -56,8 +56,8 @@ $(document).ready(function(){
 			var selectedQuantity = listaProductos[s+2].options[listaProductos[s+2].selectedIndex].value;
 
 			shopList.push([selectedProduct, selectedType, selectedQuantity]);
-
 		}
+
 
 	});
 

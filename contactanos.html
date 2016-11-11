@@ -11,8 +11,6 @@
 	<script src="./js/jquery-2.2.4.min.js"></script>
   <script src="./js/bootstrap.min.js"></script>
   <script src="./js/script.js"></script>
-	<script src="./js/prices.js"></script>
-  <script src="./js/cart.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700|Raleway:400,400i|Oxygen" rel="stylesheet">
 </head>
 <body class="body">
@@ -40,14 +38,16 @@
 		<div class="col-md-8 col-md-offset-2 col-padding">
 			<main id="main-index">
 
-				<div class="show-product">
-					<ul id="product-list"></ul>
-				</div>
+				<h1>Contáctanos</h1>
 
-				<div class="add-product">
-					<ul>
-						<li>Click para agregar un producto</li>
-					</ul>
+				<div class="row-fluid contact">
+					<form class="contact-form" action="enviar.php" method="post">
+						<input name="nombre" type="text" class="form-control form-text" placeholder="Nombre" required />
+						<input name="telefono" type="text" class="form-control form-text" placeholder="Teléfono" required />
+						<input name="correo" type="email" class="form-control form-text" placeholder="Correo" required />
+						<textarea name="comentario" class="form-control" rows="4" placeholder="Comentario" required></textarea>
+						<button type="" class="btn btn-success"><span class="glyphicon glyphicon-send"></span> Enviar</button>
+					</form>
 				</div>
 
 			</main>
