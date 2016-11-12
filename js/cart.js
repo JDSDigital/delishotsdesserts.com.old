@@ -27,7 +27,11 @@ $(document).ready(function(){
 			var selectedType = listaProductos[p+1].options[listaProductos[p+1].selectedIndex].value;
 			var selectedQuantity = listaProductos[p+2].options[listaProductos[p+2].selectedIndex].value;
 
-			if (selectedProduct.length !== 0) {
+			if (selectedProduct == 0) {
+
+				console.log("Debe seleccionar todos los campos");
+
+			} else {
 
 				if (selectedType == 1) {
 					price = selectedProduct[0].fullPrice * selectedQuantity;
@@ -42,6 +46,8 @@ $(document).ready(function(){
 		}
 
 		document.getElementById("result").innerHTML = "<p>" + total + "</p>";
+
+
 
 	});
 
@@ -58,8 +64,22 @@ $(document).ready(function(){
 			shopList.push([selectedProduct, selectedType, selectedQuantity]);
 		}
 
-
 	});
+
+	function removeProduct() {
+
+		var element = document.getElementById(this.id);
+		//element.parentNode.removeChild(element);
+		element = element.parentNode.parentNode.parentNode;
+		element.parentNode.removeChild(element);
+
+		var listaProductos = document.getElementById('product-list').getElementsByTagName('li');
+
+		if (listaProductos.length === 0) {
+			$('.show-product, .resultLine, .calculate').removeClass('current');
+		}
+
+	}
 
 	var i = 0;
 
@@ -69,8 +89,6 @@ $(document).ready(function(){
 	  var li = document.createElement("li");
 		li.setAttribute("id", "product"+i);
 	  ul.appendChild(li);
-
-		//$(li).append("<div class='row-fluid' style='margin-bottom:50px;'><div class='col-md-4'><select id='selectProduct"+i+"' class='form-control'><option value='0'>Seleccione un producto</option></select></div><div class='col-md-4'><select id='selectType"+i+"' class='form-control'><option value='0'>Seleccione una presentación</option></select></div><div class='col-md-3'><select id='selectQuantity"+i+"' class='form-control'><option value='0'>Seleccione la cantidad</option></select></div><div class='col-md-1'><button id='deleteLi"+i+"' class='btn btn-danger'><span class='glyphicon glyphicon-remove'></span></button></div></div>");
 
 		$(li).append("<div class='row-fluid' style='margin-bottom:50px;'><div class='col-md-1'><button id='deleteLi"+i+"' class='btn btn-danger'><span class='glyphicon glyphicon-remove'></span></button></div><div class='col-md-3'><div id='product-photo-"+i+"'><img class='product-photo-option' src='./img/products/0.png' /></div></div><div class='col-md-8'><div class='row-fluid'><table class='product-table' style='margin-bottom: 20px;'><tr><td>Seleccione un producto</td><td><select id='selectProduct"+i+"' class='form-control'><option value='0'>Seleccione un producto</option></select></td></tr><tr><td>Seleccione una presentacion</td><td><select id='selectType"+i+"' class='form-control'><option value='0'>Seleccione una presentación</option></select></td></tr><tr><td>Seleccione la cantidad</td><td><select id='selectQuantity"+i+"' class='form-control'><option value='0'>Seleccione la cantidad</option></select></td></tr></table></div></div></div>");
 
@@ -200,15 +218,6 @@ $(document).ready(function(){
 		// Get dropdown element from DOM
 		var selectedField = document.getElementById(event.data.name);
 		var selectedValue = selectedField.options[selectedField.selectedIndex].value;
-
-	}
-
-	function removeProduct() {
-
-		var element = document.getElementById(this.id);
-		//element.parentNode.removeChild(element);
-		element = element.parentNode.parentNode.parentNode;
-		element.parentNode.removeChild(element);
 
 	}
 
