@@ -36,7 +36,7 @@
 		</nav>
 	</div>
 
-	<div class="row-fluid fade-in body">
+	<div class="row-fluid">
 		<div class="col-md-8 col-md-offset-2 col-padding">
 			<main id="main-index-option">
 
@@ -69,8 +69,30 @@
 				<div class="row calculate">
 					<div class="col-md-12">
 						<button type="button" id="buttonCalculate" name="buttonCalculate" class="btn btn-info"><span class='glyphicon glyphicon-info-sign'></span> Calcular</button>
-						<button type="button" id="buttonContinue" name="buttonContinue" class="btn btn-success"><span class='glyphicon glyphicon-ok'></span> Continuar</button>
+						<button type="button" id="buttonContinue" name="buttonContinue" class="btn btn-success" data-toggle="modal" data-target="#myModal"><span class='glyphicon glyphicon-ok'></span> Continuar</button>
 					</div>
+				</div>
+
+				<!-- Modal -->
+				<div id="myModal" class="modal fade" role="dialog">
+				  <div class="modal-dialog">
+
+				    <!-- Modal content-->
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal">&times;</button>
+				        <strong><h2 class="modal-title">Usted pidió:</h2></strong>
+				      </div>
+				      <div class="modal-body">
+				        <p>Some text in the modal.</p>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+				        <button type="button" class="btn btn-success" data-dismiss="modal">Continuar</button>
+				      </div>
+				    </div>
+
+				  </div>
 				</div>
 
 			</main>

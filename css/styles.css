@@ -650,11 +650,20 @@ main p {
   padding: 10px;
 }
 
-.btn-danger {
+.btn-remove-product {
   margin-top: 65px;
 }
 
 .calculate {
+  text-align: center;
+}
+
+.modal-content {
+  text-shadow: none;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.modal-header {
   text-align: center;
 }
 
