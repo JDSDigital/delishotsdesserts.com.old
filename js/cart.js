@@ -69,7 +69,7 @@ $(document).ready(function(){
 		var i = 0;
 
 		shopList.forEach(function() {
-			review = review.concat('<div class="container-fluid"><div class="col-md-4"><p>Foto</p></div><div class="col-md-8"><div class="row"><p>Producto: '+shopList[i][1]+'</p></div><div class="row"><p>Presentación: '+shopList[i][2]+'</p></div><div class="row"><p>Cantidad: '+shopList[i][2]+'</p></div></div></div>');
+			review = review.concat('<div class="container-fluid"><div class="col-md-4"><img class="product-photo-option" src=""./img/products/'+shopList[i][0]+'.jpg" /></div><div class="col-md-8"><div class="row"><p>Producto: '+shopList[i][1]+'</p></div><div class="row"><p>Presentación: '+shopList[i][2]+'</p></div><div class="row"><p>Cantidad: '+shopList[i][2]+'</p></div></div></div>');
 			i++;
 		});
 
