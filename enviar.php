@@ -61,11 +61,11 @@
 
 					# Instantiate the client.
 					$mgClient = new Mailgun('key-bb6be62102fbde6cb67a14a09ef126fe');
-					$domain = "mg.grupo-jgm.com";
+					$domain = "mg.delishotsdesserts.com";
 
 					# Make the call to the client.
 					$result = $mgClient->sendMessage($domain, array(
-							'from'    => 'Grupo JGM Web <postmaster@mg.grupo-jgm.com>',
+							'from'    => 'Grupo JGM Web <postmaster@mg.delishotsdesserts.com>',
 							'to'      => 'Grupo JGM <jdsosa@gmail.com>',
 							'subject' => 'Nuevo mensaje desde la página web',
 							'text'    => '
