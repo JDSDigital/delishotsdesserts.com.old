@@ -175,10 +175,12 @@ main p {
   padding: 50px 0px 50px 0px;
 }
 
-.product-menu {
+.position-fixed {
   position: fixed;
-  width: 200px;
-  margin-left: 20px;
+}
+
+.product-menu {
+  position: absolute;
   background-image: url('../img/background-index.png');
   border: 1px solid black;
   border-radius: 20px;
