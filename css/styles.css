@@ -675,15 +675,24 @@ main p {
 
 .contact {
   text-align: center;
-  margin-top: 50px;
 }
 
 .contact-form {
-  width: 60%;
-  margin: 0 auto;
+  margin: 10px;
 }
 .contact-form input, textarea {
   margin: 10px;
+}
+.contact-data {
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+.contact-data a {
+  color: #FFF;
+}
+.contact-data a:hover {
+  color: #FFFCCC;
+  text-decoration: none;
 }
 
 /**************************** Fin de contactanos *****************************/
