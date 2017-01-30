@@ -138,6 +138,47 @@ body {
 #top-menu a.active {
   color:#fffccc;
 }
+.top-menu-xs ul {
+  list-style-type: none;
+  margin: 20px 0 0 0;
+  padding: 0;
+  text-align: center;
+  background: linear-gradient(#513527, #2f1e15); /* Standard syntax */
+  background: -o-linear-gradient(#513527, #2f1e15); /* For Opera 11.6 to 12.0 */
+  background: -moz-linear-gradient(#513527, #2f1e15); /* For Firefox 3.6 to 15 */
+  background: -webkit-linear-gradient(#513527, #2f1e15); /* Safari 5.1 to 6.0 */
+  border-radius: 10px;
+  border: 1px solid #302017;
+}
+
+.top-menu-xs li {
+  display: inline;
+}
+
+.top-menu-xs a {
+  text-decoration: none;
+  font-family: 'Cinzel Decorative', cursive;
+  color: #9f6e53;
+  padding: 10px;
+  transition:.5s;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+}
+
+.top-menu-xs a:hover {
+  color:#fffccc;
+  transition:.5s;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+}
+
+.top-menu-xs a.active {
+  color:#fffccc;
+}
 
 .col-padding {
   padding: 0 !important;
