@@ -87,35 +87,38 @@ body {
   background-color: transparent !important;
 }
 
-#logo-banner {
+.pr0{
+  padding-right: 0px;
+}
 
+.mt50 {
+  margin-top: 50px;
 }
 
 #top-menu ul {
   list-style-type: none;
-  margin: 0;
+  margin: 20px 0 0 0;
   padding: 0;
+  text-align: right;
 }
 
 #top-menu li {
-  display: inline;
+  /*display: inline;*/
+  background: linear-gradient(#513527, #2f1e15); /* Standard syntax */
+  background: -o-linear-gradient(#513527, #2f1e15); /* For Opera 11.6 to 12.0 */
+  background: -moz-linear-gradient(#513527, #2f1e15); /* For Firefox 3.6 to 15 */
+  background: -webkit-linear-gradient(#513527, #2f1e15); /* Safari 5.1 to 6.0 */
+  border-radius: 10px 0 0 10px;
+  border: 1px solid #302017;
+  margin-bottom: 10px;
+  /*padding: 10px 0 10px 0;*/
 }
 
 #top-menu a {
   text-decoration: none;
   font-family: 'Cinzel Decorative', cursive;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-top: 10px;
-  margin-bottom: 0;
   color: #9f6e53;
   padding: 10px;
-  background: linear-gradient(#513527, #2f1e15); /* Standard syntax */
-  background: -o-linear-gradient(#513527, #2f1e15); /* For Opera 11.6 to 12.0 */
-  background: -moz-linear-gradient(#513527, #2f1e15); /* For Firefox 3.6 to 15 */
-  background: -webkit-linear-gradient(#513527, #2f1e15); /* Safari 5.1 to 6.0 */
-  border-radius: 10px;
-  border: 1px solid #302017;
   transition:.5s;
   -o-transition:.5s;
   -ms-transition:.5s;
@@ -181,6 +184,7 @@ main p {
 
 .product-menu {
   position: absolute;
+  margin-top: 160px;
   background-image: url('../img/background-index.png');
   border: 1px solid black;
   border-radius: 20px;
@@ -210,7 +214,7 @@ main p {
 .product-menu ul {
   padding-left: 0;
   float: right;
-  text-align: right;
+  text-align: left;
   font-family: 'Cinzel Decorative', cursive !important;
 }
 
