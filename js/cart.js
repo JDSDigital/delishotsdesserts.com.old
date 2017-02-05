@@ -63,13 +63,14 @@ $(document).ready(function(){
 			var selectedQuantity = listaProductos[s+2].options[listaProductos[s+2].selectedIndex].value;
 
 			shopList.push([selectedProduct, selectedProductName, selectedType, selectedQuantity]);
+			console.log(shopList);
 		}
 
 		var review = '';
 		var i = 0;
 
 		shopList.forEach(function() {
-			review = review.concat('<div class="container-fluid"><div class="col-md-4"><img class="product-photo-option" src=""./img/products/'+shopList[i][0]+'.jpg" /></div><div class="col-md-8"><div class="row"><p>Producto: '+shopList[i][1]+'</p></div><div class="row"><p>Presentación: '+shopList[i][2]+'</p></div><div class="row"><p>Cantidad: '+shopList[i][2]+'</p></div></div></div>');
+			review = review.concat('<div class="container-fluid"><div class="col-md-5"><img class="product-photo-option" src="./img/cart/'+shopList[i][0]+'.jpg" /></div><div class="col-md-7"><div class="row"><p>Producto: '+shopList[i][1]+'</p></div><div class="row"><p>Presentación: '+shopList[i][2]+'</p></div><div class="row"><p>Cantidad: '+shopList[i][3]+'</p></div></div></div>');
 			i++;
 		});
 
@@ -100,7 +101,7 @@ $(document).ready(function(){
 		li.setAttribute("id", "product"+i);
 	  ul.appendChild(li);
 
-		$(li).append("<div class='row-fluid' style='margin-bottom:50px;'><div class='col-md-1'><button id='deleteLi"+i+"' class='btn btn-danger btn-remove-product'><span class='glyphicon glyphicon-remove'></span></button></div><div class='col-md-3'><div id='product-photo-"+i+"'><img class='product-photo-option' src='./img/products/0.png' /></div></div><div class='col-md-8'><div class='row-fluid'><table class='product-table' style='margin-bottom: 20px;'><tr><td>Seleccione un producto</td><td><select id='selectProduct"+i+"' class='form-control'><option value='0'>Seleccione un producto</option></select></td></tr><tr><td>Seleccione una presentacion</td><td><select id='selectType"+i+"' class='form-control'><option value='0'>Seleccione una presentación</option></select></td></tr><tr><td>Seleccione la cantidad</td><td><select id='selectQuantity"+i+"' class='form-control'><option value='0'>Seleccione la cantidad</option></select></td></tr></table></div></div></div>");
+		$(li).append("<div class='row-fluid' style='margin-bottom:50px;'><div class='col-md-1'><button id='deleteLi"+i+"' class='btn btn-danger btn-remove-product'><span class='glyphicon glyphicon-remove'></span></button></div><div class='col-md-3'><div id='product-photo-"+i+"'><img class='product-photo-option' src='./img/cart/0.png' /></div></div><div class='col-md-8'><div class='row-fluid'><table class='product-table' style='margin-bottom: 20px;'><tr><td>Seleccione un producto</td><td><select id='selectProduct"+i+"' class='form-control'><option value='0'>Seleccione un producto</option></select></td></tr><tr><td>Seleccione una presentacion</td><td><select id='selectType"+i+"' class='form-control'><option value='0'>Seleccione una presentación</option></select></td></tr><tr><td>Seleccione la cantidad</td><td><select id='selectQuantity"+i+"' class='form-control'><option value='0'>Seleccione la cantidad</option></select></td></tr></table></div></div></div>");
 
 		createSelectProduct();
 
@@ -216,9 +217,9 @@ $(document).ready(function(){
 	function selectPhoto(value, product) {
 		var photoId = "product-photo-"+value;
 		if (product == 0) {
-			document.getElementById(photoId).innerHTML = "<img class='product-photo-option' src='./img/products/"+product+".png' />";
+			document.getElementById(photoId).innerHTML = "<img class='product-photo-option' src='./img/cart/"+product+".png' />";
 		} else {
-			document.getElementById(photoId).innerHTML = "<img class='product-photo-option' src='./img/products/"+product+".jpg' />";
+			document.getElementById(photoId).innerHTML = "<img class='product-photo-option' src='./img/cart/"+product+".jpg' />";
 		}
 
 	}

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="description" content="Comenzamos elaborando postres caseros para eventos familiares, con recetas que han pasado de generación en generación, al pasar el tiempo fuimos recopilando nuevas recetas y aumentando nuestro repertorio, obteniendo un alto nivel de aceptación de amigos y familiares, esto representó un gran incentivo y nos vimos en la necesidad de tomar la decisión de crear una pequeña empresa de todo lo que veníamos haciendo, planteándonos la mejor forma de presentar nuestros postres y el tipo de mercado que atenderíamos. Así se formó Delishot & Desserts, la cual es una empresa familiar dedicada a la elaboración de postres con diferentes presentaciones para todo tipo de eventos y reuniones."/>
+	<meta name="robots" content="noindex">
+	<meta name="description" content="Empresa dedicada a la elaboración casera de postres para eventos, fiestas, mayor y detal en la zona de Caracas."/>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>DELISHOTS & DESSERTS</title>
@@ -17,7 +18,7 @@
 <body class="body">
 <div class="container">
 
-	<div class="row fade-in body">
+	<div class="row">
 		<div class="col-md-2 pr0">
 			<header>
 				<a href="./index.html" class="hvr-ripple-out"><img id="logo-banner" class="img-responsive" src="./img/logo.png" /></a>
@@ -92,8 +93,8 @@
 
 						<?php
 						$nombre = $_POST['nombre'];
-						$apellido = $_POST['apellido'];
-						$email = $_POST['email'];
+						$telefono = $_POST['telefono'];
+						$correo = $_POST['correo'];
 						$comentario = $_POST['comentario'];
 
 						# Include the Autoloader (see "Libraries" for install instructions)
@@ -106,22 +107,47 @@
 
 						# Make the call to the client.
 						$result = $mgClient->sendMessage($domain, array(
-								'from'    => 'Grupo JGM Web <postmaster@mg.delishotsdesserts.com>',
-								'to'      => 'Grupo JGM <jdsosa@gmail.com>',
+								'from'    => 'Delishots Desserts <postmaster@mg.delishotsdesserts.com>',
+								'to'      => 'Delishots Desserts <delishotsdesserts@gmail.com>',
 								'subject' => 'Nuevo mensaje desde la página web',
 								'text'    => '
 										Ha recibido un nuevo mensaje desde la página web.
 
 										Nombre: ' .$nombre .'
-										Apellido: ' .$apellido .'
-										Email: ' .$email .'
+										Apellido: ' .$telefono .'
+										Email: ' .$correo .'
 										Comentario: ' .$comentario .'
 								'
 						));
 
-						echo "<br />Su solicitud ha sido enviada y sera atendida a la brevedad posible.";
+						echo "<script type='text/javascript'>
+							$(document).ready(function(){
+								$('#myModal').modal('show');
+							});
+						</script>";
+
 
 						 ?>
+						 <!-- Modal -->
+		 				<div id="myModal" class="modal fade" role="dialog">
+		 				  <div class="modal-dialog">
+
+		 				    <!-- Modal content-->
+		 				    <div class="modal-content">
+		 				      <div class="modal-header">
+		 				        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		 				        <strong><h2 class="modal-title">¡Mensaje Enviado!</h2></strong>
+		 				      </div>
+		 				      <div class="modal-body">
+		 				        <p>Su solicitud ha sido enviada y sera atendida a la brevedad posible.</p>
+		 				      </div>
+		 				      <div class="modal-footer">
+		 				        <button type="button" class="btn btn-success" data-dismiss="modal" onclick="location.href='./contactanos.html';">Continuar</button>
+		 				      </div>
+		 				    </div>
+
+		 				  </div>
+		 				</div>
 
 					</div>
 
