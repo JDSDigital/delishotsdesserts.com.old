@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="robots" content="noindex">
-	<meta name="description" content="Empresa dedicada a la elaboración casera de postres para eventos, fiestas, mayor y detal en la zona de Caracas."/>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>DELISHOTS & DESSERTS</title>
-	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="./css/hover.css"/>
-  <link rel="stylesheet" type="text/css" href="./css/styles.css"/>
-	<link rel="shortcut icon" type="image/png" href="./img/favicon.png">
-	<script src="./js/jquery-2.2.4.min.js"></script>
-  <script src="./js/bootstrap.min.js"></script>
-  <script src="./js/script.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700|Raleway:400,400i|Oxygen" rel="stylesheet">
+    <meta name="robots" content="noindex">
+    <meta name="description" content="Empresa dedicada a la elaboración casera de postres para eventos, fiestas, mayor y detal en la zona de Caracas."/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DELISHOTS & DESSERTS</title>
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/hover.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/styles.css"/>
+    <link rel="shortcut icon" type="image/png" href="./img/favicon.png">
+    <script src="./js/jquery-2.2.4.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/script.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700|Raleway:400,400i|Oxygen" rel="stylesheet">
 </head>
 <body class="body">
 <div class="container">
@@ -108,7 +108,7 @@
 						# Make the call to the client.
 						$result = $mgClient->sendMessage($domain, array(
 								'from'    => 'Delishots Desserts <postmaster@mg.delishotsdesserts.com>',
-								'to'      => 'Delishots Desserts <delishotsdesserts@gmail.com>',
+								'to'      => 'Delishots Desserts <jdsosa@gmail.com>',
 								'subject' => 'Nuevo mensaje desde la página web',
 								'text'    => '
 										Ha recibido un nuevo mensaje desde la página web.

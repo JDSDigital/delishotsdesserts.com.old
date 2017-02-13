@@ -17,6 +17,11 @@
 	<script src="./js/cart.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700|Raleway:400,400i|Oxygen" rel="stylesheet">
 </head>
+<?php
+    if(isset($_POST['nombre'])){
+        echo "<p>nombre</p>";
+    }
+?>
 <body class="body">
 <div class="container">
 
@@ -107,7 +112,7 @@
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
 								<h2 class="modal-title"><strong>Datos de contacto:</strong></h2>
 							</div>
-							<form class="product-form" action="./opcion.php" method="post">
+							<form class="contact-form" action="./enviar.php" method="post">
 								<div class="modal-body">
 									<div class="container-fluid">
 										<div class="row">
@@ -121,7 +126,7 @@
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-										<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-send"></span> Enviar</button>
+										<button type="button" id="test" class="btn btn-success"><span class="glyphicon glyphicon-send"></span> Enviar</button>
 									</div>
 								</div>
 							</form>

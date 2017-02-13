@@ -2,24 +2,24 @@ $(document).ready(function(){
 /************************* Escoge tu mejor opción ****************************/
 
 	$('.add-product li').click(function() {
-
 		$('.show-product, .resultLine, .calculate').addClass('current');
-
 		addProduct();
-
 	});
 
-	$("#buttonCalculate").on("click", function() {
+	$("#buttonCalculate").on("click", buttonCalculate);
+	$("#buttonContinueToProducts").on("click", function () {
+        return buttonContinueToProducts();
+    });
 
+	function buttonCalculate() {
 		var listaProductos = document.getElementById('product-list').getElementsByTagName('select');
 		var total = 0;
 		var price = 0;
 
 		for (var p = 0; p < listaProductos.length; p = p+3) {
-
 			function getProductByProductName(val) {
 				return prices.filter(
-						function(prices){return prices.product == val}
+					function(prices){return prices.product == val}
 				);
 			}
 
@@ -28,11 +28,8 @@ $(document).ready(function(){
 			var selectedQuantity = listaProductos[p+2].options[listaProductos[p+2].selectedIndex].value;
 
 			if (selectedProduct == 0) {
-
 				console.log("Debe seleccionar todos los campos");
-
 			} else {
-
 				if (selectedType == 1) {
 					price = selectedProduct[0].fullPrice * selectedQuantity;
 					total = total + price;
@@ -40,42 +37,81 @@ $(document).ready(function(){
 					price = selectedProduct[0].shotPrice * selectedQuantity;
 					total = total + price;
 				}
-
 			}
-
 		}
-
 		document.getElementById("result").innerHTML = "<p>" + total + "</p>";
+        return total;
+	}
 
-
-
-	});
-
-	$("#buttonContinue").on("click", function() {
+	function buttonContinueToProducts() {
+	    var total = buttonCalculate();
 		var listaProductos = document.getElementById('product-list').getElementsByTagName('select');
 		var shopList = [];
 
 		for (var s = 0; s < listaProductos.length; s=s+3) {
-
 			var selectedProduct = listaProductos[s].options[listaProductos[s].selectedIndex].value;
 			var selectedProductName = listaProductos[s].options[listaProductos[s].selectedIndex].text;
 			var selectedType = listaProductos[s+1].options[listaProductos[s+1].selectedIndex].value;
+			var selectedTypeName = listaProductos[s+1].options[listaProductos[s+1].selectedIndex].text;
 			var selectedQuantity = listaProductos[s+2].options[listaProductos[s+2].selectedIndex].value;
-
-			shopList.push([selectedProduct, selectedProductName, selectedType, selectedQuantity]);
-			console.log(shopList);
+			shopList.push([selectedProduct, selectedProductName, selectedType, selectedTypeName, selectedQuantity]);
 		}
 
-		var review = '';
+		var review = '<div class="container-fluid">';
 		var i = 0;
 
 		shopList.forEach(function() {
-			review = review.concat('<div class="container-fluid"><div class="col-md-5"><img class="product-photo-option" src="./img/cart/'+shopList[i][0]+'.jpg" /></div><div class="col-md-7"><div class="row"><p>Producto: '+shopList[i][1]+'</p></div><div class="row"><p>Presentación: '+shopList[i][2]+'</p></div><div class="row"><p>Cantidad: '+shopList[i][3]+'</p></div></div></div>');
+			review = review.concat('' +
+				'<div class="row modal-product">' +
+                    '<div class="col-md-5">' +
+                        '<img class="product-photo-option" src="./img/cart/'+shopList[i][0]+'.jpg" />' +
+                    '</div>' +
+                    '<div class="col-md-7">' +
+                        '<div class="row">' +
+                            '<p>Producto: '+shopList[i][1]+'</p>' +
+                        '</div>' +
+                        '<div class="row">' +
+                            '<p>Presentación: '+shopList[i][3]+'</p>' +
+                        '</div>' +
+                        '<div class="row">' +
+                            '<p>Cantidad: '+shopList[i][4]+'</p>' +
+                        '</div>' +
+                    '</div>' +
+				'</div>');
 			i++;
 		});
 
-		$('.modal-body').html(review);
-	});
+        review = review.concat('</div><hr /><p class="total">Total: ' + total + '</p>');
+		$('.modal-body-products').html(review);
+        $("#modalProducts").modal('toggle');
+        $("#buttonContinueToForm").on("click", function () {
+            buttonContinueToForm(shopList);
+        });
+	}
+
+	function buttonContinueToForm(shopList) {
+        $("#modalProducts").modal('toggle');
+        $("#modalForm").modal('toggle');
+		$.ajax({
+
+		});
+		$(".product-form").submit(function(e) {
+
+			var url = "./opcion.php"; // the script where you handle the form input.
+
+			$.ajax({
+				type: "POST",
+				url: url,
+				data: $(".product-form").serialize(), // serializes the form's elements.
+				success: function(data)
+				{
+					alert(data); // show response from the php script.
+				}
+			});
+
+			e.preventDefault(); // avoid to execute the actual submit of the form.
+		});
+    }
 
 	function removeProduct() {
 
@@ -96,12 +132,55 @@ $(document).ready(function(){
 
 	function addProduct() {
 
-	  var ul = document.getElementById("product-list");
-	  var li = document.createElement("li");
+		var ul = document.getElementById("product-list");
+		var li = document.createElement("li");
 		li.setAttribute("id", "product"+i);
-	  ul.appendChild(li);
+		ul.appendChild(li);
 
-		$(li).append("<div class='row-fluid' style='margin-bottom:50px;'><div class='col-md-1'><button id='deleteLi"+i+"' class='btn btn-danger btn-remove-product'><span class='glyphicon glyphicon-remove'></span></button></div><div class='col-md-3'><div id='product-photo-"+i+"'><img class='product-photo-option' src='./img/cart/0.png' /></div></div><div class='col-md-8'><div class='row-fluid'><table class='product-table' style='margin-bottom: 20px;'><tr><td>Seleccione un producto</td><td><select id='selectProduct"+i+"' class='form-control'><option value='0'>Seleccione un producto</option></select></td></tr><tr><td>Seleccione una presentacion</td><td><select id='selectType"+i+"' class='form-control'><option value='0'>Seleccione una presentación</option></select></td></tr><tr><td>Seleccione la cantidad</td><td><select id='selectQuantity"+i+"' class='form-control'><option value='0'>Seleccione la cantidad</option></select></td></tr></table></div></div></div>");
+		$(li).append("" +
+			"<div class='row-fluid' style='margin-bottom:50px;'>" +
+				"<div class='col-md-1'>" +
+					"<button id='deleteLi"+i+"' class='btn btn-danger btn-remove-product'>" +
+						"<span class='glyphicon glyphicon-remove'></span>" +
+					"</button>" +
+				"</div>" +
+				"<div class='col-md-3'>" +
+					"<div id='product-photo-"+i+"'>" +
+						"<img class='product-photo-option' src='./img/cart/0.png' />" +
+					"</div>" +
+				"</div>" +
+				"<div class='col-md-8'>" +
+					"<div class='row-fluid'>" +
+						"<table class='product-table' style='margin-bottom: 20px;'>" +
+							"<tr>" +
+								"<td>Seleccione un producto</td>" +
+								"<td>" +
+									"<select id='selectProduct"+i+"' class='form-control'>" +
+										"<option value='0'>Seleccione un producto</option>" +
+									"</select>" +
+								"</td>" +
+							"</tr>" +
+							"<tr>" +
+								"<td>Seleccione una presentacion</td>" +
+								"<td>" +
+									"<select id='selectType"+i+"' class='form-control'>" +
+										"<option value='0'>Seleccione una presentación</option>" +
+									"</select>" +
+								"</td>" +
+							"</tr>" +
+							"<tr>" +
+								"<td>Seleccione la cantidad</td>" +
+								"<td>" +
+									"<select id='selectQuantity"+i+"' class='form-control'>" +
+										"<option value='0'>Seleccione la cantidad</option>" +
+									"</select>" +
+								"</td>" +
+							"</tr>" +
+						"</table>" +
+					"</div>" +
+				"</div>" +
+			"</div>"
+		);
 
 		createSelectProduct();
 
@@ -133,8 +212,8 @@ $(document).ready(function(){
 
 		// Loop through the array
 		for (var j = 0; j < prices.length; ++j) {
-				// Append the element to the end of Array list
-				dropdown[dropdown.length] = new Option(prices[j].name, prices[j].product);
+			// Append the element to the end of Array list
+			dropdown[dropdown.length] = new Option(prices[j].name, prices[j].product);
 		}
 
 	}
@@ -166,15 +245,11 @@ $(document).ready(function(){
 		// Fill the type dropdown list
 		if (selectedValue != 0) {
 			if (found[0].full === true) {
-
 				dropdownType[dropdownType.length] = new Option("Postre completo", 1);
-
 			}
 
 			if (found[0].shot === true) {
-
 				dropdownType[dropdownType.length] = new Option("Postre en shots", 2);
-
 			}
 		}
 
@@ -234,4 +309,4 @@ $(document).ready(function(){
 
 /*********************** Fin de escoge tu mejor opción ***********************/
 
-})
+});
