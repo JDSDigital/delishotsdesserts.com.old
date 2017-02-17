@@ -223,10 +223,13 @@ main p {
   position: fixed;
 }
 
+.nuestrosProductos {
+    background-image: url('../img/background-index.png');
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
 .product-menu {
-  position: absolute;
-  /*margin-top: 160px;*/
-  background-image: url('../img/background-index.png');
   border: 1px solid black;
   border-radius: 20px;
   transition:0.8s;

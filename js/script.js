@@ -6,21 +6,15 @@ $(document).ready(function(){
 		$('.nuestrosProductos a').removeClass('current');
 
 		$(this).addClass('current');
-	})
+	});
+
+    $(".sidebar").stick_in_parent();
 
     setInterval('swapImages()', 5000);
 	setInterval('swapImages2()', 3000);
 	setInterval('swapImages3()', 3500);
 
-	$(function(){
-		$('.sidebar').sticky('.body', {
-					useTransition: false,
-					animate: true,
-					animTime: 1000
-			});
-	});
-
-})
+});
 
 function swapImages(){
     var $active = $('#myGallery .active');
