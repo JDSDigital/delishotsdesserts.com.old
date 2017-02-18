@@ -107,24 +107,24 @@
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
 								<h2 class="modal-title"><strong>Datos de contacto:</strong></h2>
 							</div>
-							<form class="product-form" action="./opcion.php" method="post">
 								<div class="modal-body">
 									<div class="container-fluid">
 										<div class="row">
 											<div class="col-md-10 col-md-offset-1">
-												<input name="nombre" type="text" class="form-control form-text" placeholder="Nombre" required />
-												<input name="telefono" type="text" class="form-control form-text" placeholder="Teléfono" required />
-												<input name="correo" type="email" class="form-control form-text" placeholder="Correo" required />
-												<input name="fecha" type="text" class="form-control form-text" placeholder="Fecha tentativa" required />
+												<form id="product-form" class="product-form" action="./opcion.php" method="post">
+													<input id="userName" type="text" class="form-control form-text" placeholder="Nombre" required />
+													<input id="userPhone" type="text" class="form-control form-text" placeholder="Teléfono" required />
+													<input id="userMail" type="email" class="form-control form-text" placeholder="Correo" required />
+													<input id="userDate" type="text" class="form-control form-text" placeholder="Fecha tentativa" required />
+												</form>
 											</div>
 										</div>
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-										<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-send"></span> Enviar</button>
+										<button type="button" id="buttonContinueToSend" class="btn btn-success"><span class="glyphicon glyphicon-send"></span> Enviar</button>
 									</div>
 								</div>
-							</form>
 						</div>
 					</div>
 				</div>

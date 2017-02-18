@@ -92,26 +92,41 @@ $(document).ready(function(){
 	function buttonContinueToForm(shopList) {
         $("#modalProducts").modal('toggle');
         $("#modalForm").modal('toggle');
-		$.ajax({
 
-		});
-		$(".product-form").submit(function(e) {
-
-			var url = "./opcion.php"; // the script where you handle the form input.
-
-			$.ajax({
-				type: "POST",
-				url: url,
-				data: $(".product-form").serialize(), // serializes the form's elements.
-				success: function(data)
-				{
-					alert(data); // show response from the php script.
-				}
-			});
-
-			e.preventDefault(); // avoid to execute the actual submit of the form.
+		$("#buttonContinueToSend").on("click", function () {
+			buttonContinueToSend(shopList);
 		});
     }
+
+
+	function buttonContinueToSend(shopList) {
+        $("#modalForm").modal('toggle');
+
+		var test = JSON.stringify(shopList);
+		var url = "./opcion.php";
+
+		var inputData = document.getElementById('product-form').getElementsByTagName('input');
+		var userData = {
+			userName: inputData.userName.value,
+			userPhone: inputData.userPhone.value,
+			userMail: inputData.userMail.value,
+			userDate: inputData.userDate.value,
+		};
+		console.log(userData);
+
+		$.ajax({
+			type: "POST",
+			url: url,
+			data: {shopList: JSON.stringify(shopList), userData: JSON.stringify(userData)}
+		})
+			.done(function (data) {
+				console.log("La solicitud se ha completado correctamente.");
+			})
+			.fail(function (textStatus) {
+				console.log("La solicitud a fallado: " + textStatus);
+			});
+		// e.preventDefault();
+	}
 
 	function removeProduct() {
 
@@ -188,7 +203,7 @@ $(document).ready(function(){
 
 		var selectProductLi = "selectProduct"+i;
 		var selectTypeLi = "selectType"+i;
-		var selectQuantityLi = "selectQuantity"+i;
+		// var selectQuantityLi = "selectQuantity"+i;
 		var deleteLi = "deleteLi"+i;
 
 		$("#"+selectProductLi).on("change", {name: selectProductLi}, createSelectType);
@@ -232,7 +247,7 @@ $(document).ready(function(){
 		// Find product data in prices.js
 		function getProductByProductName(val) {
 			return prices.filter(
-					function(prices){return prices.product == val}
+				function(prices){return prices.product == val}
 			);
 		}
 
