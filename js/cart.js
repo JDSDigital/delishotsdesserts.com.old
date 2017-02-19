@@ -1,5 +1,4 @@
 $(document).ready(function(){
-/************************* Escoge tu mejor opción ****************************/
 
 	$('.add-product li').click(function() {
 		$('.show-product, .resultLine, .calculate').addClass('current');
@@ -74,15 +73,12 @@ $(document).ready(function(){
 		var deleteLi = "deleteLi"+i;
 
 		$("#"+selectProductLi).on("change", {name: selectProductLi}, createSelectType);
-
 		$("#"+selectTypeLi).on("change", {name: selectTypeLi}, createSelectQuantity);
-
 		$("#"+deleteLi).on("click", removeProduct);
 
 /************************ Fin de registro de eventos *************************/
 
 		i++;
-
 	}
 
 	function removeProduct() {
@@ -174,14 +170,13 @@ $(document).ready(function(){
 				dropdownQuantity[dropdownQuantity.length] = new Option(k, k);
 			}
 		} else if (selectedValue == 3) {
+			// Empty dropdown list
 			dropdownQuantity.options.length = 1;
 			for (k = 0; k < product[0].quantities.length; k++){
 				dropdownQuantity[dropdownQuantity.length] = new Option(product[0].quantities[k], product[0].quantities[k]);
 			}
 		}
 	}
-
-/*********************** Fin de escoge tu mejor opción ***********************/
 
 });
 
@@ -211,8 +206,12 @@ function buttonCalculate() {
 		var selectedType = listaProductos[p+1].options[listaProductos[p+1].selectedIndex].value;
 		var selectedQuantity = listaProductos[p+2].options[listaProductos[p+2].selectedIndex].value;
 
-		if (selectedProduct == 0) {
-			console.log("Debe seleccionar todos los campos");
+		if (selectedProduct == 0 || selectedType == 0 || selectedQuantity == 0) {
+			$('.modal-title-messages').html('<strong>¡Atención!</strong>');
+			$('.modal-body-messages').html('<p>Debe seleccionar todos los campos.</p>');
+			$('.modal-footer-messages').html('<button type="button" class="btn btn-success" data-dismiss="modal">Continuar</button>');
+			$("#modalMessages").modal('toggle');
+			return null;
 		} else {
 			if (selectedType == 1) {
 				price = selectedProduct[0].fullPrice * selectedQuantity;
@@ -232,48 +231,52 @@ function buttonCalculate() {
 
 function buttonContinueToProducts() {
 	var total = buttonCalculate();
-	var listaProductos = document.getElementById('product-list').getElementsByTagName('select');
-	var shopList = [];
 
-	for (var s = 0; s < listaProductos.length; s=s+3) {
-		var selectedProduct = listaProductos[s].options[listaProductos[s].selectedIndex].value;
-		var selectedProductName = listaProductos[s].options[listaProductos[s].selectedIndex].text;
-		var selectedType = listaProductos[s+1].options[listaProductos[s+1].selectedIndex].value;
-		var selectedTypeName = listaProductos[s+1].options[listaProductos[s+1].selectedIndex].text;
-		var selectedQuantity = listaProductos[s+2].options[listaProductos[s+2].selectedIndex].value;
-		shopList.push([selectedProduct, selectedProductName, selectedType, selectedTypeName, selectedQuantity]);
+	if (total != null){
+		var listaProductos = document.getElementById('product-list').getElementsByTagName('select');
+		var shopList = [];
+
+		for (var s = 0; s < listaProductos.length; s = s + 3) {
+			shopList.push([
+				listaProductos[s].options[listaProductos[s].selectedIndex].value,
+				listaProductos[s].options[listaProductos[s].selectedIndex].text,
+				listaProductos[s + 1].options[listaProductos[s + 1].selectedIndex].value,
+				listaProductos[s + 1].options[listaProductos[s + 1].selectedIndex].text,
+				listaProductos[s + 2].options[listaProductos[s + 2].selectedIndex].value
+			]);
+		}
+
+		var review = '<div class="container-fluid">';
+
+		for (var i = 0; i < shopList.length; i++) {
+			review = review.concat('' +
+				'<div class="row modal-product">' +
+					'<div class="col-md-5">' +
+					'	<img class="product-photo-option" src="./img/cart/' + shopList[i][0] + '.jpg" />' +
+					'</div>' +
+					'<div class="col-md-7">' +
+						'<div class="row">' +
+						'	<p>Producto: ' + shopList[i][1] + '</p>' +
+						'</div>' +
+						'<div class="row">' +
+							'<p>Presentación: ' + shopList[i][3] + '</p>' +
+						'</div>' +
+						'<div class="row">' +
+							'<p>Cantidad: ' + shopList[i][4] + '</p>' +
+						'</div>' +
+					'</div>' +
+				'</div>'
+			);
+		}
+
+		review = review.concat('</div><hr /><p class="total">Total: ' + total + ' Bs.</p>');
+
+		$('.modal-body-products').html(review);
+		$("#modalProducts").modal('toggle');
+		$("#buttonContinueToForm").on("click", function () {
+			buttonContinueToForm(shopList);
+		});
 	}
-
-	var review = '<div class="container-fluid">';
-	var i = 0;
-
-	shopList.forEach(function() {
-		review = review.concat('' +
-			'<div class="row modal-product">' +
-			'<div class="col-md-5">' +
-			'<img class="product-photo-option" src="./img/cart/'+shopList[i][0]+'.jpg" />' +
-			'</div>' +
-			'<div class="col-md-7">' +
-			'<div class="row">' +
-			'<p>Producto: '+shopList[i][1]+'</p>' +
-			'</div>' +
-			'<div class="row">' +
-			'<p>Presentación: '+shopList[i][3]+'</p>' +
-			'</div>' +
-			'<div class="row">' +
-			'<p>Cantidad: '+shopList[i][4]+'</p>' +
-			'</div>' +
-			'</div>' +
-			'</div>');
-		i++;
-	});
-
-	review = review.concat('</div><hr /><p class="total">Total: ' + total + ' Bs.</p>');
-	$('.modal-body-products').html(review);
-	$("#modalProducts").modal('toggle');
-	$("#buttonContinueToForm").on("click", function () {
-		buttonContinueToForm(shopList);
-	});
 }
 
 function buttonContinueToForm(shopList) {
@@ -289,9 +292,6 @@ function buttonContinueToForm(shopList) {
 function buttonContinueToSend(shopList) {
 	$("#modalForm").modal('toggle');
 
-	var test = JSON.stringify(shopList);
-	var url = "./opcion.php";
-
 	var inputData = document.getElementById('contact-form').getElementsByTagName('input');
 	var userData = {
 		userName: inputData.userName.value,
@@ -302,7 +302,7 @@ function buttonContinueToSend(shopList) {
 
 	$.ajax({
 		type: "POST",
-		url: url,
+		url: "./opcion.php",
 		data: {shopList: JSON.stringify(shopList), userData: JSON.stringify(userData)},
 		success: function () {
 			$('.modal-title-messages').html('<strong>¡Éxito!</strong>');
