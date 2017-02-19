@@ -71,7 +71,11 @@
 					</div>
 
 					<div class="col-md-1">
-						<div id="result"><p>0</p></div>
+						<div id="result"><p class="text-align-right">0</p></div>
+					</div>
+
+					<div class="col-md-1">
+						<div><p>Bs.</p></div>
 					</div>
 
 				</div>
@@ -111,7 +115,7 @@
 									<div class="container-fluid">
 										<div class="row">
 											<div class="col-md-10 col-md-offset-1">
-												<form id="product-form" class="product-form" action="./opcion.php" method="post">
+												<form id="contact-form" class="contact-form" action="./opcion.php" method="post">
 													<input id="userName" type="text" class="form-control form-text" placeholder="Nombre" required />
 													<input id="userPhone" type="text" class="form-control form-text" placeholder="Teléfono" required />
 													<input id="userMail" type="email" class="form-control form-text" placeholder="Correo" required />
@@ -128,6 +132,20 @@
 						</div>
 					</div>
 				</div>
+
+				<!-- Modal Messages -->
+				<div id="modalMessages" class="modal fade" role="dialog">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h2 class="modal-title modal-title-messages"></h2>
+							</div>
+							<div class="modal-body modal-body-messages"></div>
+							<div class="modal-footer modal-footer-messages"></div>
+						</div>
+					</div>
+				</div>
+
 			</main>
 		</div>
 

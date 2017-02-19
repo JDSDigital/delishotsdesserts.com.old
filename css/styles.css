@@ -180,10 +180,6 @@ body {
   color:#fffccc;
 }
 
-.col-padding {
-  padding: 0 !important;
-}
-
 main {
   margin: 0 auto;
   padding: 50px;
@@ -212,6 +208,18 @@ main p {
   font-size: 18px;
   text-align: justify;
   color: white;
+}
+
+.col-padding {
+    padding: 0 !important;
+}
+
+.text-align-left{
+    text-align: left !important;
+}
+
+.text-align-right{
+    text-align: right !important;
 }
 
 .main-gallery {
@@ -722,16 +730,20 @@ main p {
 }
 
 .modal-body hr {
-    margin: 0;
+  margin: 0;
 }
 
 .modal-body>.total {
-    margin: 15px;
-    text-align: right;
+  margin: 15px;
+  text-align: right;
 }
 
 .modal-product {
-    padding: 15px;
+  padding: 15px;
+}
+
+.modal-body-messages{
+  padding: 30px;
 }
 
 /*********************** Fin de escoge tu mejor opción ***********************/
@@ -744,6 +756,7 @@ main p {
 
 .contact-form {
   margin: 10px;
+  /*padding: 30px;*/
 }
 .contact-form input, textarea {
   margin: 10px;
@@ -765,13 +778,13 @@ main p {
 /*****************************************************************************/
 
 footer {
-	background-color: transparent;
+  background-color: transparent;
   position: relative;
 }
 
 footer p {
-	margin: 0;
-	padding: 2px;
+  margin: 0;
+  padding: 2px;
 }
 
 footer a {

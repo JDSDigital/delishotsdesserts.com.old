@@ -11,14 +11,14 @@ var prices = [
     "product": "four-elements",
     "name": "Four Elements",
     "full": true,
-    "shot": false,
+    "shot": true,
     "fullPrice": 200,
     "shotPrice": 20
   },
   {
     "product": "sweet-lemon",
     "name": "Sweet Lemon",
-    "full": false,
+    "full": true,
     "shot": true,
     "fullPrice": 300,
     "shotPrice": 30
@@ -26,24 +26,24 @@ var prices = [
   {
     "product": "choco-lovers",
     "name": "Choco Lovers",
-    "full": false,
-    "shot": false,
+    "full": true,
+    "shot": true,
     "fullPrice": 400,
     "shotPrice": 40
   },
   {
     "product": "soft-hazelnuts",
     "name": "Soft Hazelnuts",
-    "full": false,
-    "shot": false,
+    "full": true,
+    "shot": true,
     "fullPrice": 500,
     "shotPrice": 50
   },
   {
     "product": "three-elements",
     "name": "Three Elements",
-    "full": false,
-    "shot": false,
+    "full": true,
+    "shot": true,
     "fullPrice": 500,
     "shotPrice": 50
   },
@@ -138,57 +138,57 @@ var prices = [
   {
     "product": "alfajores",
     "name": "Alfajores",
-    "full": true,
-    "shot": true,
-    "fullPrice": 500,
-    "shotPrice": 50
+    "full": false,
+    "shot": false,
+    "price": 10,
+    "quantities": [3,12]
   },
   {
     "product": "bomboneria",
     "name": "Bombonería Surtida",
-    "full": true,
-    "shot": true,
-    "fullPrice": 500,
-    "shotPrice": 50
+    "full": false,
+    "shot": false,
+    "price": 10,
+    "quantities": [3,12]
   },
   {
     "product": "tartaletas",
     "name": "Tartaleta de Frutas",
-    "full": true,
-    "shot": true,
-    "fullPrice": 500,
-    "shotPrice": 50
+    "full": false,
+    "shot": false,
+    "price": 10,
+    "quantities": [3,12]
   },
   {
     "product": "chococookies",
     "name": "Chococookies",
-    "full": true,
-    "shot": true,
-    "fullPrice": 500,
-    "shotPrice": 50
+    "full": false,
+    "shot": false,
+    "price": 10,
+    "quantities": [3,12]
   },
   {
     "product": "polvorosas",
     "name": "Polvorosas",
-    "full": true,
-    "shot": true,
-    "fullPrice": 500,
-    "shotPrice": 50
+    "full": false,
+    "shot": false,
+    "price": 10,
+    "quantities": [3,12]
   },
   {
     "product": "macarrones",
     "name": "Macarrones",
-    "full": true,
-    "shot": true,
-    "fullPrice": 500,
-    "shotPrice": 50
+    "full": false,
+    "shot": false,
+    "price": 10,
+    "quantities": [3,12]
   },
   {
     "product": "snowflake",
     "name": "Snowflake",
-    "full": true,
-    "shot": true,
-    "fullPrice": 500,
-    "shotPrice": 50
-  },
+    "full": false,
+    "shot": false,
+    "price": 10,
+    "quantities": [3,12]
+  }
 ];

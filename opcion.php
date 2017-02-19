@@ -25,7 +25,7 @@ $text .= "</table></html>";
 
 echo $text;
 
-require 'vendor/autoload.php';
+/*require 'vendor/autoload.php';
 use Mailgun\Mailgun;
 
 # Instantiate the client.
@@ -38,5 +38,5 @@ $result = $mgClient->sendMessage($domain, array(
         'to'      => 'Delishots Desserts <jdsosa@gmail.com>',
         'subject' => 'Nuevo mensaje desde la página web',
         'html'    => $text,
-));
+));*/
 ?>
