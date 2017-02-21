@@ -8,11 +8,38 @@ $(document).ready(function(){
 		$(this).addClass('current');
 	});
 
-    $(".sidebar").stick_in_parent();
-
     setInterval('swapImages()', 5000);
 	setInterval('swapImages2()', 3000);
 	setInterval('swapImages3()', 3500);
+
+    $("#buttonContactSend").on("click", function () {
+        // e.preventDefault();
+        var inputData = document.getElementById('contact-form');
+        var userData = {
+            userName: inputData.getElementsByTagName('input').userName.value,
+            userPhone: inputData.getElementsByTagName('input').userPhone.value,
+            userMail: inputData.getElementsByTagName('input').userMail.value,
+            userComment: inputData.getElementsByTagName('textarea').userComment.value
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "./enviar.php",
+            data: {userData: JSON.stringify(userData)},
+            success: function () {
+                $('.modal-title-messages').html('<strong>¡Éxito!</strong>');
+                $('.modal-body-messages').html('<p>Hemos recibido exitosamente su comentario, en breves instantes nos comunicaremos con usted.</p>');
+                $('.modal-footer-messages').html('<button type="button" class="btn btn-success" data-dismiss="modal">Continuar</button>');
+                $("#modalMessages").modal('toggle');
+            },
+            error: function () {
+                $('.modal-title-messages').html('<strong>¡Error!</strong>');
+                $('.modal-body-messages').html('<p>Ha ocurrido un error. Por favor vuelva a intentarlo más tarde.</p>');
+                $('.modal-footer-messages').html('<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>');
+                $("#modalMessages").modal('toggle');
+            }
+        });
+    });
 
 });
 
@@ -42,48 +69,3 @@ function swapImages3(){
     $next.fadeIn().addClass('active');
     });
 }
-
-// $(function() {
-//   $('.product-nav').click(function() {
-//     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-//       var target = $(this.hash);
-//       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-//       if (target.length) {
-//         $('html,body').animate({
-//           scrollTop: target.offset().top
-//         }, 500);
-//         return false;
-//       }
-//     }
-//   });
-// });
-//
-// $.fn.moveIt = function(){
-//   var $window = $(window);
-//   var instances = [];
-//
-//   $(this).each(function(){
-//     instances.push(new moveItItem($(this)));
-//   });
-//
-//   window.onscroll = function(){
-//     var scrollTop = $window.scrollTop();
-//     instances.forEach(function(inst){
-//       inst.update(scrollTop);
-//     });
-//   }
-// }
-//
-// var moveItItem = function(el){
-//   this.el = $(el);
-//   this.speed = parseInt(this.el.attr('data-scroll-speed'));
-// };
-//
-// moveItItem.prototype.update = function(scrollTop){
-//   var pos = scrollTop / this.speed;
-//   this.el.css('transform', 'translateY(' + -pos + 'px)');
-// };
-//
-// $(function(){
-//   $('[data-scroll-speed]').moveIt();
-// });
