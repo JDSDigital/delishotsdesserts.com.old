@@ -33,7 +33,7 @@ $domain = "mg.delishotsdesserts.com";
 # Make the call to the client.
 $result = $mgClient->sendMessage($domain, array(
         'from'    => 'Delishots Desserts <postmaster@mg.delishotsdesserts.com>',
-        'to'      => 'Delishots Desserts <jdsosa@gmail.com>',
+        'to'      => 'Delishots Desserts <delishotsdesserts@gmail.com>',
         'subject' => 'Nuevo pedido desde la página web',
         'html'    => $text,
 ));
