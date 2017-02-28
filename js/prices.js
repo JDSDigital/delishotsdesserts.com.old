@@ -5,7 +5,11 @@ var prices = [
     "full": true,
     "shot": true,
     "fullPrice": 100,
-    "shotPrice": 10
+    "shotPrice": 10,
+    "fullSize": [1,2,3],
+    "shotSize": [5,8],
+    "fullQuantities": [1,2,3,4],
+    "shotQuantities": [12,18,24,30,36]
   },
   {
     "product": "four-elements",
@@ -13,7 +17,11 @@ var prices = [
     "full": true,
     "shot": true,
     "fullPrice": 200,
-    "shotPrice": 20
+    "shotPrice": 20,
+    "fullSize": [1,2,3],
+    "shotSize": [5,8],
+    "fullQuantities": [1,2,3,4],
+    "shotQuantities": [12,18,24,30,36]
   },
   {
     "product": "sweet-lemon",
@@ -21,7 +29,11 @@ var prices = [
     "full": true,
     "shot": true,
     "fullPrice": 300,
-    "shotPrice": 30
+    "shotPrice": 30,
+    "fullSize": [1,2,3],
+    "shotSize": [5,8],
+    "fullQuantities": [1,2,3,4],
+    "shotQuantities": [12,18,24,30,36]
   },
   {
     "product": "choco-lovers",
@@ -29,7 +41,11 @@ var prices = [
     "full": true,
     "shot": true,
     "fullPrice": 400,
-    "shotPrice": 40
+    "shotPrice": 40,
+    "fullSize": [1,2,3],
+    "shotSize": [5,8],
+    "fullQuantities": [1,2,3,4],
+    "shotQuantities": [12,18,24,30,36]
   },
   {
     "product": "soft-hazelnuts",
@@ -37,7 +53,11 @@ var prices = [
     "full": true,
     "shot": true,
     "fullPrice": 500,
-    "shotPrice": 50
+    "shotPrice": 50,
+    "fullSize": [1,2,3],
+    "shotSize": [5,8],
+    "fullQuantities": [1,2,3,4],
+    "shotQuantities": [12,18,24,30,36]
   },
   {
     "product": "three-elements",
@@ -45,7 +65,11 @@ var prices = [
     "full": true,
     "shot": true,
     "fullPrice": 500,
-    "shotPrice": 50
+    "shotPrice": 50,
+    "fullSize": [1,2,3],
+    "shotSize": [5,8],
+    "fullQuantities": [1,2,3,4],
+    "shotQuantities": [12,18,24,30,36]
   },
   {
     "product": "crazy-brownie",
@@ -53,7 +77,11 @@ var prices = [
     "full": true,
     "shot": true,
     "fullPrice": 500,
-    "shotPrice": 50
+    "shotPrice": 50,
+    "fullSize": [0.5,1,1.5,2],
+    "shotSize": [5,8],
+    "fullQuantities": [1,2,3,4],
+    "shotQuantities": [12,18,24,30,36]
   },
   {
     "product": "dark-explotion",
@@ -61,7 +89,11 @@ var prices = [
     "full": true,
     "shot": true,
     "fullPrice": 500,
-    "shotPrice": 50
+    "shotPrice": 50,
+    "fullSize": [0.5,1,1.5,2],
+    "shotSize": [5,8],
+    "fullQuantities": [1,2,3,4],
+    "shotQuantities": [12,18,24,30,36]
   },
   {
     "product": "cheesecake-blanco",
@@ -69,7 +101,11 @@ var prices = [
     "full": true,
     "shot": true,
     "fullPrice": 500,
-    "shotPrice": 50
+    "shotPrice": 50,
+    "fullSize": [1.5,2,2.5],
+    "shotSize": [5,8],
+    "fullQuantities": [1,2,3,4],
+    "shotQuantities": [12,18,24,30,36]
   },
   {
     "product": "cheesecake-oreo",
@@ -77,7 +113,11 @@ var prices = [
     "full": true,
     "shot": true,
     "fullPrice": 500,
-    "shotPrice": 50
+    "shotPrice": 50,
+    "fullSize": [1.5,2,2.5],
+    "shotSize": [5,8],
+    "fullQuantities": [1,2,3,4],
+    "shotQuantities": [12,18,24,30,36]
   },
   {
     "product": "tiramisu",
@@ -85,7 +125,11 @@ var prices = [
     "full": true,
     "shot": true,
     "fullPrice": 500,
-    "shotPrice": 50
+    "shotPrice": 50,
+    "fullSize": [1.5,2,2.5],
+    "shotSize": [5,8],
+    "fullQuantities": [1,2,3,4],
+    "shotQuantities": [12,18,24,30,36]
   },
   {
     "product": "mousse",
@@ -93,7 +137,11 @@ var prices = [
     "full": true,
     "shot": true,
     "fullPrice": 500,
-    "shotPrice": 50
+    "shotPrice": 50,
+    "fullSize": [1,2,3],
+    "shotSize": [5,8],
+    "fullQuantities": [1,2,3,4],
+    "shotQuantities": [12,18,24,30,36]
   },
   {
     "product": "milky-rice",
@@ -101,7 +149,11 @@ var prices = [
     "full": true,
     "shot": true,
     "fullPrice": 500,
-    "shotPrice": 50
+    "shotPrice": 50,
+    "fullSize": [1.5,2,2.5],
+    "shotSize": [5,8],
+    "fullQuantities": [1,2,3,4],
+    "shotQuantities": [12,18,24,30,36]
   },
   {
     "product": "profiteroles",
@@ -109,7 +161,11 @@ var prices = [
     "full": true,
     "shot": true,
     "fullPrice": 500,
-    "shotPrice": 50
+    "shotPrice": 50,
+    "fullSize": [1.5,2,2.5],
+    "shotSize": [5,8],
+    "fullQuantities": [1,2,3,4],
+    "shotQuantities": [12,18,24,30,36]
   },
   {
     "product": "red-velvet",
@@ -117,7 +173,11 @@ var prices = [
     "full": true,
     "shot": true,
     "fullPrice": 500,
-    "shotPrice": 50
+    "shotPrice": 50,
+    "fullSize": [1.5,2,2.5],
+    "shotSize": [5,8],
+    "fullQuantities": [1,2,3,4],
+    "shotQuantities": [12,18,24,30,36]
   },
   {
     "product": "passion-nuts",
@@ -125,7 +185,11 @@ var prices = [
     "full": true,
     "shot": true,
     "fullPrice": 500,
-    "shotPrice": 50
+    "shotPrice": 50,
+    "fullSize": [1.5,2,2.5],
+    "shotSize": [5,8],
+    "fullQuantities": [1,2,3,4],
+    "shotQuantities": [12,18,24,30,36]
   },
   {
     "product": "coffee-cake",
@@ -133,7 +197,11 @@ var prices = [
     "full": true,
     "shot": true,
     "fullPrice": 500,
-    "shotPrice": 50
+    "shotPrice": 50,
+    "fullSize": [1,2,3],
+    "shotSize": [5,8],
+    "fullQuantities": [1,2,3,4],
+    "shotQuantities": [12,18,24,30,36]
   },
   {
     "product": "alfajores",
@@ -141,7 +209,7 @@ var prices = [
     "full": false,
     "shot": false,
     "price": 10,
-    "quantities": [3,12]
+    "quantities": [24,30,36,42]
   },
   {
     "product": "bomboneria",
@@ -149,7 +217,7 @@ var prices = [
     "full": false,
     "shot": false,
     "price": 10,
-    "quantities": [3,12]
+    "quantities": [48,60,72,84]
   },
   {
     "product": "tartaletas",
@@ -157,7 +225,7 @@ var prices = [
     "full": false,
     "shot": false,
     "price": 10,
-    "quantities": [3,12]
+    "quantities": [12,24,36,48,60,72,84]
   },
   {
     "product": "chococookies",
@@ -165,7 +233,7 @@ var prices = [
     "full": false,
     "shot": false,
     "price": 10,
-    "quantities": [3,12]
+    "quantities": [12,24,36,48,60,72,84]
   },
   {
     "product": "polvorosas",
@@ -173,7 +241,7 @@ var prices = [
     "full": false,
     "shot": false,
     "price": 10,
-    "quantities": [3,12]
+    "quantities": [12,24,36,48,60,72,84]
   },
   {
     "product": "macarrones",
@@ -181,7 +249,7 @@ var prices = [
     "full": false,
     "shot": false,
     "price": 10,
-    "quantities": [3,12]
+    "quantities": [12,24,36,48,60,72,84]
   },
   {
     "product": "snowflake",
@@ -189,6 +257,6 @@ var prices = [
     "full": false,
     "shot": false,
     "price": 10,
-    "quantities": [3,12]
+    "quantities": [12,24,36,48,60,72,84]
   }
 ];

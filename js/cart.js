@@ -1,5 +1,10 @@
 $(document).ready(function(){
 
+	var i = 0;
+	var j;
+	var k;
+	var p;
+
 	$('.add-product li').click(function() {
 		$('.show-product, .resultLine, .calculate').addClass('current');
 		addProduct();
@@ -9,8 +14,6 @@ $(document).ready(function(){
 	$("#buttonContinueToProducts").on("click", function () {
         return buttonContinueToProducts();
     });
-
-	var i = 0;
 
 	function addProduct() {
 
@@ -102,7 +105,7 @@ $(document).ready(function(){
 		var dropdown = document.getElementById("selectProduct"+i);
 
 		// Loop through the array
-		for (var j = 0; j < prices.length; ++j) {
+		for (j = 0; j < prices.length; ++j) {
 			// Append the element to the end of Array list
 			dropdown[dropdown.length] = new Option(prices[j].name, prices[j].product);
 		}
@@ -126,20 +129,26 @@ $(document).ready(function(){
 		dropdownType.options.length = 1;
 
 		// Fill the type dropdown list
-        if (found[0].quantities){
+        if (found[0].full == false && found[0].shot == false){
             $(dropdownType).prop('disabled', true);
-			dropdownType[dropdownType.length] = new Option(found[0].name, 3);
-			$(dropdownType).val(3);
+			dropdownType[dropdownType.length] = new Option(found[0].name, 10);
+			$(dropdownType).val(10);
 			$(dropdownType).trigger("change");
         }
         else
             $(dropdownType).prop('disabled', false);
 
 		if (selectedValue != 0) {
-			if (found[0].full === true)
-				dropdownType[dropdownType.length] = new Option("Postre completo", 1);
-			if (found[0].shot === true)
-				dropdownType[dropdownType.length] = new Option("Postre en shots", 2);
+			if (found[0].full === true){
+				for (j = 0; j < found[0].fullSize.length; j++) {
+					dropdownType[dropdownType.length] = new Option("Torta de " + found[0].fullSize[j] + " Kg.", j+1);
+				}
+			}
+			if (found[0].shot === true){
+				for (k = 0; k < found[0].shotSize.length; k++) {
+					dropdownType[dropdownType.length] = new Option("Shot de " + found[0].shotSize[k] + " Oz.", k+5);
+				}
+			}
 		}
 
 	}
@@ -157,24 +166,24 @@ $(document).ready(function(){
 
         $(dropdownQuantity).prop('disabled', false);
 
-		if (selectedValue == 1) {
+		if (selectedValue == 1 || selectedValue == 2 || selectedValue == 3 || selectedValue == 4) {
 			// Empty dropdown list
 			dropdownQuantity.options.length = 1;
-			for (k = 1; k < 7; k++) {
-				dropdownQuantity[dropdownQuantity.length] = new Option(k, k);
-			}
-		} else if (selectedValue == 2) {
+			for (k = 0; k < product[0].fullQuantities.length; k++)
+				dropdownQuantity[dropdownQuantity.length] = new Option(product[0].fullQuantities[k], k+1);
+
+		} else if (selectedValue == 5 || selectedValue == 6 || selectedValue == 7 || selectedValue == 8) {
 			// Empty dropdown list
 			dropdownQuantity.options.length = 1;
-			for (k = 6; k < 37; k = k+6) {
-				dropdownQuantity[dropdownQuantity.length] = new Option(k, k);
-			}
-		} else if (selectedValue == 3) {
+			for (k = 0; k < product[0].shotQuantities.length; k++)
+				dropdownQuantity[dropdownQuantity.length] = new Option(product[0].shotQuantities[k], product[0].shotQuantities[k]);
+
+		} else if (selectedValue == 10) {
 			// Empty dropdown list
 			dropdownQuantity.options.length = 1;
-			for (k = 0; k < product[0].quantities.length; k++){
+			for (k = 0; k < product[0].quantities.length; k++)
 				dropdownQuantity[dropdownQuantity.length] = new Option(product[0].quantities[k], product[0].quantities[k]);
-			}
+
 		}
 	}
 
@@ -200,7 +209,7 @@ function buttonCalculate() {
 	var total = 0;
 	var price = 0;
 
-	for (var p = 0; p < listaProductos.length; p = p+3) {
+	for (p = 0; p < listaProductos.length; p = p+3) {
 
 		var selectedProduct = getProductByProductName(listaProductos[p].options[listaProductos[p].selectedIndex].value);
 		var selectedType = listaProductos[p+1].options[listaProductos[p+1].selectedIndex].value;
@@ -213,13 +222,13 @@ function buttonCalculate() {
 			$("#modalMessages").modal('toggle');
 			return null;
 		} else {
-			if (selectedType == 1) {
-				price = selectedProduct[0].fullPrice * selectedQuantity;
+			if (selectedType == 1 || selectedType == 2 || selectedType == 3 || selectedType == 4) {
+				price = selectedProduct[0].fullPrice * selectedProduct[0].fullSize[selectedType-1] * selectedQuantity;
 				total = total + price;
-			} else if (selectedType == 2) {
-				price = selectedProduct[0].shotPrice * selectedQuantity;
+			} else if (selectedType == 5 || selectedType == 6 || selectedType == 7 || selectedType == 8) {
+				price = selectedProduct[0].shotPrice * selectedProduct[0].shotSize[selectedType-5] *selectedQuantity;
 				total = total + price;
-			} else if (selectedType == 3) {
+			} else if (selectedType == 10) {
 				price = selectedProduct[0].price * selectedQuantity;
 				total = total + price;
 			}
