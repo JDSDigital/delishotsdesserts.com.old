@@ -141,14 +141,15 @@ $(document).ready(function(){
 		if (selectedValue != 0) {
 			if (found[0].full === true){
 				for (j = 0; j < found[0].fullSize.length; j++) {
-					dropdownType[dropdownType.length] = new Option("Torta de " + found[0].fullSize[j] + " Kg.", j+1);
+					dropdownType[dropdownType.length] = new Option(found[0].fullSize[j] + " Kg.", j+1);
 				}
 			}
-			if (found[0].shot === true){
-				for (k = 0; k < found[0].shotSize.length; k++) {
-					dropdownType[dropdownType.length] = new Option("Shot de " + found[0].shotSize[k] + " Oz.", k+5);
-				}
-			}
+			if (found[0].shot5oz === true)
+				dropdownType[dropdownType.length] = new Option("Vasito de 5oz", 6);
+			if (found[0].shot8oz === true)
+				dropdownType[dropdownType.length] = new Option("Vasito de 8oz", 7);
+			if (found[0].shot === true)
+				dropdownType[dropdownType.length] = new Option("Shot", 8);
 		}
 
 	}
@@ -166,13 +167,25 @@ $(document).ready(function(){
 
         $(dropdownQuantity).prop('disabled', false);
 
-		if (selectedValue == 1 || selectedValue == 2 || selectedValue == 3 || selectedValue == 4) {
+		if (selectedValue == 1 || selectedValue == 2 || selectedValue == 3 || selectedValue == 4 || selectedValue == 5) {
 			// Empty dropdown list
 			dropdownQuantity.options.length = 1;
 			for (k = 0; k < product[0].fullQuantities.length; k++)
 				dropdownQuantity[dropdownQuantity.length] = new Option(product[0].fullQuantities[k], k+1);
 
-		} else if (selectedValue == 5 || selectedValue == 6 || selectedValue == 7 || selectedValue == 8) {
+		} else if (selectedValue == 6) {
+			// Empty dropdown list
+			dropdownQuantity.options.length = 1;
+			for (k = 0; k < product[0].shot5ozQuantities.length; k++)
+				dropdownQuantity[dropdownQuantity.length] = new Option(product[0].shot5ozQuantities[k], product[0].shot5ozQuantities[k]);
+
+		} else if (selectedValue == 7) {
+			// Empty dropdown list
+			dropdownQuantity.options.length = 1;
+			for (k = 0; k < product[0].shot8ozQuantities.length; k++)
+				dropdownQuantity[dropdownQuantity.length] = new Option(product[0].shot8ozQuantities[k], product[0].shot8ozQuantities[k]);
+
+		} else if (selectedValue == 8) {
 			// Empty dropdown list
 			dropdownQuantity.options.length = 1;
 			for (k = 0; k < product[0].shotQuantities.length; k++)
@@ -222,11 +235,17 @@ function buttonCalculate() {
 			$("#modalMessages").modal('toggle');
 			return null;
 		} else {
-			if (selectedType == 1 || selectedType == 2 || selectedType == 3 || selectedType == 4) {
+			if (selectedType == 1 || selectedType == 2 || selectedType == 3 || selectedType == 4 || selectedType == 5) {
 				price = selectedProduct[0].fullPrice * selectedProduct[0].fullSize[selectedType-1] * selectedQuantity;
 				total = total + price;
-			} else if (selectedType == 5 || selectedType == 6 || selectedType == 7 || selectedType == 8) {
-				price = selectedProduct[0].shotPrice * selectedProduct[0].shotSize[selectedType-5] *selectedQuantity;
+			} else if (selectedType == 6) {
+				price = selectedProduct[0].shot5ozPrice * selectedQuantity;
+				total = total + price;
+			} else if (selectedType == 7) {
+				price = selectedProduct[0].shot8ozPrice * selectedQuantity;
+				total = total + price;
+			} else if (selectedType == 8) {
+				price = selectedProduct[0].shotPrice * selectedQuantity;
 				total = total + price;
 			} else if (selectedType == 10) {
 				price = selectedProduct[0].price * selectedQuantity;
